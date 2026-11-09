@@ -22,7 +22,7 @@
   try { store = { ...blank(), ...JSON.parse(localStorage.getItem(KEY) || "{}") }; } catch {}
   store.filters = { ...blank().filters, ...store.filters };
   const persist = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {} };
-  window.VFStore = { get: () => store, save: () => persist() };
+  window.VFStore = { get: () => store, save: () => persist(), clearFilters: () => { Object.assign(store.filters, { cat: "", tag: "", status: "" }); q = ""; persist(); render(); } };
   const f = store.filters; let q = "";
   const byId = id => T.find(t => t.id === id);
 
