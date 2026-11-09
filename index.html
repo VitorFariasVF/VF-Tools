@@ -74,12 +74,15 @@
   <span id="foot-priv">Favoritos, histórico e tema ficam só neste navegador. <button id="help-open" class="link">Ver tutorial</button> · <button id="reset" class="link">Limpar meus dados</button></span>
 </footer>
 <p id="toast" class="toast" role="status" aria-live="polite"></p>
-<script src="data/tools.js"></script>
-<script src="data/repos.js"></script>
-<script src="data/descriptions.js"></script>
-<script src="app.js"></script>
-<script src="repos.js"></script>
-<script src="dog.js"></script>
-<script src="help.js"></script>
+<script>
+/* Anti-cache: carrega dados e scripts com ?v=<minuto>, assim uma ferramenta nova
+   aparece em até 1 minuto, sem Ctrl+Shift+R. Ordem preservada (document.write). */
+(function () {
+  var v = Math.floor(Date.now() / 60000);
+  ["data/tools.js", "data/repos.js", "data/descriptions.js", "app.js", "repos.js", "dog.js", "help.js"].forEach(function (f) {
+    document.write('<script src="' + f + '?v=' + v + '"><\/script>');
+  });
+})();
+</script>
 </body>
 </html>
