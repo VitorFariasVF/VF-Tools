@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+  MODELO DE FERRAMENTA — VF Tools
+  1. Copie esta pasta para o repositório da sua ferramenta.
+  2. Troque os caminhos "../" pelas URLs do site (veja o README desta pasta).
+  3. Ajuste data-tool, <title>, textos e o conteúdo de <main>. Mantenha a estrutura.
+-->
+<html lang="pt-BR" data-theme="dark" data-tool="minha-ferramenta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nome da Ferramenta — VF Tools</title>
+<meta name="description" content="Uma frase (até 90 caracteres) dizendo o que a ferramenta faz.">
+<meta name="theme-color" content="#14110f">
+<!-- Evita o "flash" de tema: aplica o tema salvo antes de pintar a página -->
+<script>try{var s=JSON.parse(localStorage.getItem("vf-tools:minha-ferramenta:v1")||"{}").theme||JSON.parse(localStorage.getItem("vf-tools:v1")||"{}").theme;if(s)document.documentElement.dataset.theme=s}catch(e){}</script>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../components.css">
+</head>
+<body>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+
+<header class="top wrap">
+  <a class="back" href="../" aria-label="Voltar para VF Tools"><span>← VF<i style="color:var(--accent);font-style:normal">.</i>Tools</span></a>
+  <button id="theme" class="icon-btn" aria-label="Alternar tema claro/escuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</header>
+
+<main id="main" class="wrap">
+  <h1 class="title">Nome da <em>ferramenta</em></h1>
+  <p class="lead">Uma frase curta explicando o que ela faz e para quem é. Gratuita, sem cadastro e sem rastreamento.</p>
+
+  <!-- Exemplo de ação principal: um botão primário por tela -->
+  <section class="card" aria-labelledby="demo">
+    <h3 id="demo">Exemplo de formulário</h3>
+    <form id="form" novalidate>
+      <div class="field">
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" autocomplete="off" aria-describedby="nome-hint">
+        <span class="hint" id="nome-hint">A dica aparece sempre, não some ao digitar.</span>
+        <span class="error" id="nome-err" hidden>Digite um nome para continuar.</span>
+      </div>
+      <div class="row">
+        <button class="btn primary" type="submit">Salvar</button>
+        <button class="btn" type="button" id="clear">Limpar dados salvos</button>
+      </div>
+    </form>
+    <p class="muted" id="saved" role="status" style="margin:var(--s4) 0 0"></p>
+  </section>
+
+  <h2 class="sec">Estados da interface</h2>
+  <div class="grid">
+    <div class="state"><strong>Nada por aqui ainda</strong>Estado vazio: diga o que fazer em seguida.</div>
+    <div class="state error" role="alert"><strong>Algo deu errado</strong>Estado de erro: explique em uma frase e ofereça tentar de novo.</div>
+    <div class="state" aria-busy="true"><strong>Carregando…</strong><div class="skeleton" style="width:70%;margin:var(--s2) auto"></div><div class="skeleton" style="width:50%;margin:0 auto"></div></div>
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <span>© <span id="y"></span> Vitor Farias · <a href="https://github.com/VitorFariasVF">GitHub</a> · <a href="https://github.com/VitorFariasVF/VF-Tools/issues">Reportar problema</a></span>
+  <span>Seus dados ficam só neste navegador. <button class="link" id="reset">Limpar meus dados</button></span>
+</footer>
+
+<script src="tool.js"></script>
+<script>
+  // Exemplo de uso do helper de armazenamento
+  const $ = id => document.getElementById(id), nome = $("nome"), saved = $("saved");
+  const show = () => { const v = VFTool.get("nome", ""); saved.textContent = v ? `Olá, ${v}! (salvo neste navegador)` : ""; nome.value = v; };
+  $("form").onsubmit = e => {
+    e.preventDefault();
+    const bad = !nome.value.trim();
+    nome.setAttribute("aria-invalid", bad); $("nome-err").hidden = !bad;
+    nome.setAttribute("aria-describedby", bad ? "nome-hint nome-err" : "nome-hint");
+    if (bad) { nome.focus(); return; }
+    VFTool.set("nome", nome.value.trim()); show(); VFTool.toast("Salvo.");
+  };
+  const wipe = () => { VFTool.clear(); show(); VFTool.toast("Dados apagados."); };
+  $("clear").onclick = $("reset").onclick = () => { if (confirm("Isso remove os dados desta ferramenta neste navegador. Continuar?")) wipe(); };
+  $("y").textContent = new Date().getFullYear(); show();
+</script>
+</body>
+</html>

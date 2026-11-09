@@ -13,3 +13,6 @@ Categorias: Utilidades · Casual · Profissional. Favoritos, recentes e preferê
 GitHub → Settings → Pages → Source: branch `main`, pasta `/ (root)`.
 
 Site 100% estático (HTML/CSS/JS), sem build.
+
+## Modelo para novas ferramentas
+Pasta [`template/`](template/): página-modelo, helper de armazenamento/tema e checklist. Estilos compartilhados em `tokens.css` e `components.css`.
