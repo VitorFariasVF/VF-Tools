@@ -91,3 +91,23 @@ h1 em{color:var(--accent)}
   .foot{flex-direction:column}
   input,select{font-size:16px}
 }
+
+/* Cabeçalho com link para os repositórios */
+.top-r{display:flex;align-items:center;gap:var(--s3)}
+.nav-link{color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center;padding:0 var(--s2);font-size:.9rem}
+.nav-link:hover{color:var(--text)}
+
+/* Repositórios públicos: mesma linha editorial das ferramentas */
+.repos{padding-top:var(--s5);padding-bottom:var(--s7)}
+.langbar{display:flex;height:12px;border-radius:var(--r-pill);overflow:hidden;gap:2px;margin:var(--s3) 0 var(--s4)}
+.langbar i{display:block;background:var(--lc);min-width:6px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--lc,var(--accent));flex:none}
+.chip .dot{margin-right:var(--s1)}
+.rtools{display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:var(--s3)}
+.rtools label{color:var(--muted);font-size:.9rem;display:flex;align-items:center;gap:var(--s2)}
+.rtools select{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);min-height:44px;padding:0 var(--s3)}
+.rlist{padding-bottom:var(--s5)}
+.rlist .tags span::before{content:none}
+.rlist .row h3 a{text-decoration:none}.rlist .row h3 a:hover{text-decoration:underline;text-decoration-color:var(--c)}
+.rlist .row .cat{display:inline-flex;align-items:center;gap:var(--s2);color:var(--text);font-weight:500}
+@media(max-width:700px){.rtools{align-items:flex-start}.rtools .chips{order:2}}

@@ -22,7 +22,8 @@
 <a class="skip" href="#tools">Ir para as ferramentas</a>
 <header class="top wrap">
   <a class="logo" href="./" aria-label="VF Tools, início">VF<i>.</i>Tools</a>
-  <button id="theme" class="icon-btn" aria-label="Alternar tema claro/escuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  <div class="top-r"><a class="nav-link" href="#repos">Repositórios</a>
+  <button id="theme" class="icon-btn" aria-label="Alternar tema claro/escuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></div>
 </header>
 
 <section class="hero wrap" aria-labelledby="h1">
@@ -51,13 +52,28 @@
   <p id="empty" class="empty" role="status" hidden>Nada encontrado. <button id="clear" class="link">Limpar filtros</button></p>
 </main>
 
+<section id="repos" class="wrap repos" aria-labelledby="repos-h">
+  <h2 id="repos-h" class="sec">Repositórios públicos</h2>
+  <p id="repos-meta" class="count" aria-live="polite"></p>
+  <div id="langbar" class="langbar" aria-hidden="true"></div>
+  <div class="rtools">
+    <div id="langs" class="chips" role="group" aria-label="Filtrar por linguagem"></div>
+    <label>Ordenar <select id="rsort"><option value="recent">Mais recentes</option><option value="name">A–Z</option><option value="stars">Mais estrelas</option></select></label>
+  </div>
+  <div id="repo-list" class="list rlist"></div>
+  <p><button id="repo-more" class="btn" hidden></button></p>
+  <p id="repos-src" class="count"></p>
+</section>
+
 <footer class="foot wrap">
   <span>© <span id="y"></span> Vitor Farias · <a href="https://github.com/VitorFariasVF">GitHub</a> · <a href="https://github.com/VitorFariasVF/VF-Tools/issues">Sugerir ferramenta</a></span>
   <span id="foot-priv">Favoritos, histórico e tema ficam só neste navegador. <button id="help-open" class="link">Ver tutorial</button> · <button id="reset" class="link">Limpar meus dados</button></span>
 </footer>
 <p id="toast" class="toast" role="status" aria-live="polite"></p>
 <script src="data/tools.js"></script>
+<script src="data/repos.js"></script>
 <script src="app.js"></script>
+<script src="repos.js"></script>
 <script src="dog.js"></script>
 <script src="help.js"></script>
 </body>

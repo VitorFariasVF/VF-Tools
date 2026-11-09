@@ -7,7 +7,7 @@
 **Utilitários, jogos e apps do Vitor Farias.** Gratuitos, open source, sem cadastro e sem rastreamento.
 
 <p>
-  <a href="https://vitorfariasvf.github.io/VF-Tools/"><b>Ver todas as ferramentas →</b></a>
+  <a href="https://vitorfariasvf.github.io/VF-Tools/"><b>Ver ferramentas e repositórios →</b></a>
   &nbsp;·&nbsp;
   <a href="https://github.com/VitorFariasVF/VF-Tools">Código do site</a>
 </p>

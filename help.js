@@ -15,6 +15,7 @@
     { sel: ".row .actions", pose: "acao", text: "Aqui você usa a ferramenta, vê o código ou acompanha o desenvolvimento no GitHub. O selo perto do nome diz se ela está disponível ou em construção." },
     { sel: ".row .fav", pose: "amor", text: "Toque na estrela para favoritar. Suas favoritas sobem na lista e ficam salvas só neste navegador." },
     { sel: "#theme", pose: "tema", text: "Alterne entre o tema escuro e o claro quando preferir." },
+    { sel: "#langs", pose: "cats", text: "Mais abaixo estão todos os meus repositórios públicos. Toque numa linguagem para filtrar a lista." },
     { sel: "#foot-priv", pose: "fim", text: "Aqui você apaga o que guardei neste navegador ou revê este tutorial. Nada sai do seu aparelho. Bom uso!" }
   ];
 
@@ -70,7 +71,7 @@
     card = document.createElement("div"); card.className = "tour-card"; card.setAttribute("role", "dialog"); card.setAttribute("aria-modal", "true"); card.setAttribute("aria-labelledby", "tour-title"); card.tabIndex = -1;
     document.body.append(shield, ring, arrow, card);
     document.body.classList.add("touring");
-    inerted = [...document.querySelectorAll("header.top, main, footer.foot, .skip")]; inerted.forEach(el => el.inert = true);
+    inerted = [...document.querySelectorAll("header.top, main, #repos, footer.foot, .skip")]; inerted.forEach(el => el.inert = true);
     document.addEventListener("keydown", onKey, true);
     addEventListener("resize", onResize); addEventListener("scroll", sched, { passive: true });
     go(0);
