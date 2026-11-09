@@ -1,4 +1,4 @@
-/* Assistente "Vi" (o cachorro): balão de boas-vindas + tour guiado com seta.
+/* Assistente "Doggy" (o cachorro): balão de boas-vindas + tour guiado com seta.
    Estado salvo via window.VFStore (localStorage vf-tools:v1 → help.seen). */
 (() => {
   const S = window.VFStore; if (!S) return;
@@ -24,7 +24,7 @@
   wrap.innerHTML = `
     <div class="help-bubble" id="bubble" role="status" hidden>
       <button class="bubble-x" aria-label="Fechar ajuda" data-act="later">×</button>
-      <p><strong>Oi, eu sou o Vi!</strong> Quer um tour rápido pelo site? Já conhece? É só dispensar.</p>
+      <p><strong>Oi, eu sou o Doggy!</strong> Quer um tour rápido pelo site? Já conhece? É só dispensar.</p>
       <div class="bubble-actions"><button class="btn primary" data-act="start">Me mostre</button><button class="btn" data-act="later">Dispensar</button></div>
     </div>
     <button class="help-fab" id="fab" aria-label="Ajuda: tour guiado do site">${MASCOT("oi")}<span class="fab-label">Ajuda</span></button>`;
@@ -39,7 +39,7 @@
   const link = document.getElementById("help-open"); if (link) link.onclick = begin;
   if (!seen()) setTimeout(() => { if (!document.body.classList.contains("touring")) showBubble(); }, 4000);
 
-  /* Chamando a atenção: o Vi pula e late para o botão de ajuda até o visitante reagir (máx. 5 vezes) */
+  /* Chamando a atenção: o Doggy pula e late para o botão de ajuda até o visitante reagir (máx. 5 vezes) */
   const viEl = $(".vi", fab), setPose = p => { viEl.innerHTML = window.ViDog(p); };
   let calls = 0, callT = 0, calling = false;
   const stopCalling = () => { clearTimeout(callT); calling = false; fab.classList.remove("call"); setPose("oi"); };
@@ -83,7 +83,7 @@
     i = Math.max(0, Math.min(steps.length - 1, n));
     const s = steps[i], last = i === steps.length - 1;
     card.innerHTML = `
-      <div class="tour-head"><span class="tour-av">${MASCOT(s.pose)}</span><strong id="tour-title">Vi</strong><span class="tour-count" aria-live="polite">Passo ${i + 1} de ${steps.length}</span></div>
+      <div class="tour-head"><span class="tour-av">${MASCOT(s.pose)}</span><strong id="tour-title">Doggy</strong><span class="tour-count" aria-live="polite">Passo ${i + 1} de ${steps.length}</span></div>
       <p class="tour-text">${s.text}</p>
       <div class="tour-dots" aria-hidden="true">${steps.map((_, k) => `<i class="${k === i ? "on" : ""}"></i>`).join("")}</div>
       <div class="tour-actions"><button class="link skip-t" data-t="skip" aria-label="Pular tutorial">Pular</button><span class="sp"></span>

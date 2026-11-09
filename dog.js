@@ -1,4 +1,4 @@
-/* Vi, o cachorro — ilustração SVG (estilo "adesivo") com 8 poses.
+/* Doggy, o cachorro — ilustração SVG (estilo "adesivo") com 8 poses.
    window.ViDog(pose)   poses: oi · au · busca · cats · acao · amor · tema · fim
    Cores do contorno vêm de CSS: --vi-ol (cor) e --vi-olw (espessura), para funcionar nos dois temas. */
 (() => {
