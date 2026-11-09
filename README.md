@@ -15,4 +15,4 @@ GitHub → Settings → Pages → Source: branch `main`, pasta `/ (root)`.
 Site 100% estático (HTML/CSS/JS), sem build.
 
 ## Modelo para novas ferramentas
-Pasta [`template/`](template/): página-modelo, helper de armazenamento/tema e checklist. Estilos compartilhados em `tokens.css` e `components.css`.
+Pasta [`template/`](template/): página-modelo (com o Doggy), helper de armazenamento/tema e checklist. Estilos compartilhados em `tokens.css`, `components.css` e `doggy.css`. Para conferir se uma ferramenta segue a identidade: `node scripts/check-identity.js sua-ferramenta/index.html`.

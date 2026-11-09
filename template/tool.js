@@ -30,5 +30,6 @@ window.VFTool = (() => {
     if (!t) { t = document.createElement("p"); t.id = "toast"; t.className = "toast"; t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite"); document.body.appendChild(t); }
     t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2500);
   };
+  window.VFStore = { get: () => state, save };   // usado pelo Doggy (help.js) para lembrar que o tour já foi visto
   return { id: ID, get, set, clear, toast, theme };
 })();

@@ -12,10 +12,15 @@
 <title>Nome da Ferramenta — VF Tools</title>
 <meta name="description" content="Uma frase (até 90 caracteres) dizendo o que a ferramenta faz.">
 <meta name="theme-color" content="#14110f">
+<link rel="icon" href="../assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nome da Ferramenta — VF Tools">
+<meta property="og:description" content="Uma frase (até 90 caracteres) dizendo o que a ferramenta faz.">
 <!-- Evita o "flash" de tema: aplica o tema salvo antes de pintar a página -->
 <script>try{var s=JSON.parse(localStorage.getItem("vf-tools:minha-ferramenta:v1")||"{}").theme||JSON.parse(localStorage.getItem("vf-tools:v1")||"{}").theme;if(s)document.documentElement.dataset.theme=s}catch(e){}</script>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../components.css">
+<link rel="stylesheet" href="../doggy.css">
 </head>
 <body>
 <a class="skip" href="#main">Ir para o conteúdo</a>
@@ -60,7 +65,19 @@
   <span>Seus dados ficam só neste navegador. <button class="link" id="reset">Limpar meus dados</button></span>
 </footer>
 
+<script>
+  // Doggy (mascote de ajuda). Ao copiar para outro repositório, use a URL do site:
+  window.VF_BASE = "../";                       // ex.: "https://vitorfariasvf.github.io/VF-Tools/"
+  window.VFTour = { what: "esta ferramenta", steps: [   // 3 a 6 passos; poses: busca, cats, acao, amor, tema, fim
+    { sel: "#nome", pose: "busca", text: "Descreva aqui o primeiro campo: o que a pessoa deve informar." },
+    { sel: ".btn.primary", pose: "acao", text: "Esta é a ação principal da ferramenta." },
+    { sel: "#theme", pose: "tema", text: "Alterne entre o tema escuro e o claro quando preferir." },
+    { sel: ".foot", pose: "fim", text: "Seus dados ficam só neste navegador, e aqui você apaga tudo. Bom uso!" }
+  ] };
+</script>
 <script src="tool.js"></script>
+<script src="../dog.js"></script>
+<script src="../help.js"></script>
 <script>
   // Exemplo de uso do helper de armazenamento
   const $ = id => document.getElementById(id), nome = $("nome"), saved = $("saved");

@@ -1,6 +1,6 @@
 # Padrão de design — VF Tools (identidade Editorial)
 
-> **Criando uma ferramenta nova?** Comece pelo modelo em [`template/`](template/) (HTML pronto + `tool.js`) e use [`components.css`](components.css) e [`tokens.css`](tokens.css). O checklist está em [`template/README.md`](template/README.md).
+> **Criando uma ferramenta nova?** Comece pelo modelo em [`template/`](template/) (HTML pronto + `tool.js`) e use [`components.css`](components.css) e [`tokens.css`](tokens.css). O checklist está em [`template/README.md`](template/README.md). Para conferir automaticamente: `node scripts/check-identity.js sua-ferramenta/index.html`.
 
 Toda ferramenta nova (card no site **e** o app em si) segue estas regras para manter um visual único.
 

@@ -9,7 +9,7 @@
 
   const MASCOT = (pose = "oi") => `<span class="vi">${window.ViDog(pose)}</span>`;
 
-  const STEPS = [
+  const DEFAULT_STEPS = [
     { sel: "#q", pose: "busca", text: "Busque pelo nome, tag ou descrição. Dica: aperte a tecla / para vir direto para cá." },
     { sel: "#cats", pose: "cats", text: "Filtre por categoria: Utilidades, Casual ou Profissional. O número mostra quantas ferramentas há em cada uma." },
     { sel: ".row .actions", pose: "acao", text: "Aqui você usa a ferramenta, vê o código ou acompanha o desenvolvimento no GitHub. O selo perto do nome diz se ela está disponível ou em construção." },
@@ -18,16 +18,19 @@
     { sel: "#foot-priv", pose: "fim", text: "Aqui você apaga o que guardei neste navegador ou revê este tutorial. Nada sai do seu aparelho. Bom uso!" }
   ];
 
+  // Outras ferramentas definem window.VFTour = { what: "esta ferramenta", steps: [{ sel, pose, text }] }
+  const TOUR = window.VFTour || {}, STEPS = TOUR.steps || DEFAULT_STEPS, WHAT = TOUR.what || "o site";
+
   /* ---------- Botão flutuante + balão ---------- */
   const wrap = document.createElement("div");
   wrap.className = "help";
   wrap.innerHTML = `
     <div class="help-bubble" id="bubble" role="status" hidden>
       <button class="bubble-x" aria-label="Fechar ajuda" data-act="later">×</button>
-      <p><strong>Oi, eu sou o Doggy!</strong> Quer um tour rápido pelo site? Já conhece? É só dispensar.</p>
+      <p><strong>Oi, eu sou o Doggy!</strong> Quer um tour rápido por ${WHAT}? Já conhece? É só dispensar.</p>
       <div class="bubble-actions"><button class="btn primary" data-act="start">Me mostre</button><button class="btn" data-act="later">Dispensar</button></div>
     </div>
-    <button class="help-fab" id="fab" aria-label="Ajuda: tour guiado do site">${MASCOT("oi")}<span class="fab-label">Ajuda</span></button>`;
+    <button class="help-fab" id="fab" aria-label="Ajuda: tour guiado">${MASCOT("oi")}<span class="fab-label">Ajuda</span></button>`;
   document.body.appendChild(wrap);
   const bubble = $("#bubble", wrap), fab = $("#fab", wrap);
 

@@ -1,6 +1,6 @@
 /* Doggy — a foto real do cachorro em círculo, com adesivos por pose.
    window.ViDog(pose)   poses: oi · au · busca · cats · acao · amor · tema · fim
-   A foto fica em assets/doggy.jpg (recorte 192×192 do rosto). Olhos em (37,25) e (66,25) no espaço do SVG. */
+   A foto fica em assets/doggy.jpg (em outras ferramentas, defina window.VF_BASE com a URL do site) (recorte 192×192 do rosto). Olhos em (37,25) e (66,25) no espaço do SVG. */
 (() => {
   const RED = "#d94a5b", Y = "#f0b254", K = "#2a1b12", EL = [37, 25], ER = [66, 25];
   let uid = 0;   // ids únicos por instância: defs dentro de um SVG com display:none não funcionam em alguns navegadores
@@ -22,6 +22,6 @@
     return `<svg class="dog" viewBox="-8 -8 116 116" data-pose="${pose}" aria-hidden="true" focusable="false">
       <defs><clipPath id="pc${id}"><circle cx="50" cy="50" r="46"/></clipPath><filter id="ps${id}" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-opacity=".4"/></filter></defs>
       <g filter="url(#ps${id})"><circle cx="50" cy="50" r="49.5" fill="#fff"/></g>
-      <image href="assets/doggy.jpg" x="4" y="4" width="92" height="92" clip-path="url(#pc${id})" preserveAspectRatio="xMidYMid slice"/>${props[pose] || props.oi}</svg>`;
+      <image href="${(window.VF_BASE || "")}assets/doggy.jpg" x="4" y="4" width="92" height="92" clip-path="url(#pc${id})" preserveAspectRatio="xMidYMid slice"/>${props[pose] || props.oi}</svg>`;
   };
 })();
