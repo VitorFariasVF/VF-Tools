@@ -100,11 +100,6 @@ h1 em{color:var(--accent)}
 .fab-label{padding-right:var(--s3)}
 .vi{position:relative;display:block;width:46px;height:46px;flex:none}
 .dog{width:100%;height:100%;overflow:visible;display:block}
-.dog .ol,.dog .olp{stroke:var(--vi-ol,#f3e6cf);stroke-width:var(--vi-olw,2.4)}
-.dog .olp{stroke-width:15}
-:root{--vi-ol:#f3e6cf;--vi-olw:2.4}
-:root[data-theme=light]{--vi-ol:#2a1b12;--vi-olw:3.4}
-.dog .wave{transform-origin:76px 88px}
 .help-fab.call{border-color:var(--accent)}
 .help-bubble{position:relative;width:min(260px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--accent);border-radius:var(--r-md);padding:var(--s4);box-shadow:0 10px 32px rgba(0,0,0,.4)}
 .help-bubble::after{content:"";position:absolute;right:28px;bottom:-8px;width:14px;height:14px;background:var(--surface);border-right:1px solid var(--accent);border-bottom:1px solid var(--accent);transform:rotate(45deg)}

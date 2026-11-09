@@ -22,7 +22,7 @@ Nova categoria? Adicione em `window.CATEGORIES` (label, desc, ícone) e uma cor 
 ## 1b. Identidade
 Estilo **Editorial**: fundo quente escuro, títulos em serifa (`--font-display`) com ênfase em itálico âmbar (`<em>` com `--accent`), corpo em sans. Cada ferramenta é uma **linha numerada** (01, 02…) com meta → título → descrição → tags à esquerda e ações à direita. O âmbar é reservado ao botão principal e ao destaque do título; as cores de categoria aparecem só no ícone e no rótulo. Sem emojis: ícones SVG de traço (1.8px, `currentColor`).
 
-**Mascote Doggy:** cachorro desenhado em SVG (`dog.js`, estilo adesivo, contorno grosso). Uma pose por passo do tour (`oi`, `au`, `busca`, `cats`, `acao`, `amor`, `tema`, `fim`). Contorno via CSS (`--vi-ol`, `--vi-olw`): creme fino no escuro, marrom grosso no claro. O botão sempre mostra o rótulo "Ajuda"; animações repetem no máximo 3 vezes e respeitam `prefers-reduced-motion`.
+**Mascote Doggy:** a foto real do cachorro do autor (`assets/doggy.jpg`) em círculo com borda branca, mais um adesivo por pose (`dog.js`): `oi`, `au`, `busca`, `cats`, `acao`, `amor`, `tema`, `fim`. Um passo do tour = uma pose. O botão sempre mostra o rótulo "Ajuda"; animações repetem no máximo 3 vezes e respeitam `prefers-reduced-motion`.
 
 ## 2. Tokens (`tokens.css`)
 Nunca use cor, espaçamento ou raio "solto". Em qualquer ferramenta:
