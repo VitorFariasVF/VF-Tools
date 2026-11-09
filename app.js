@@ -17,11 +17,12 @@
 
   /* ---------- Web Storage (chave vf-tools:v1) ---------- */
   const KEY = "vf-tools:v1";
-  const blank = () => ({ theme: "", favorites: [], recent: [], uses: {}, filters: { cat: "", tag: "", status: "" } });
+  const blank = () => ({ theme: "", favorites: [], recent: [], uses: {}, help: { seen: false }, filters: { cat: "", tag: "", status: "" } });
   let store = blank();
   try { store = { ...blank(), ...JSON.parse(localStorage.getItem(KEY) || "{}") }; } catch {}
   store.filters = { ...blank().filters, ...store.filters };
   const persist = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {} };
+  window.VFStore = { get: () => store, save: () => persist() };
   const f = store.filters; let q = "";
   const byId = id => T.find(t => t.id === id);
 
