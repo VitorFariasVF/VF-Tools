@@ -1,5 +1,6 @@
 (() => {
-  const T = (window.TOOLS || []).map(t => ({ ...t, id: t.repo.split("/")[1].toLowerCase() }));
+  // `disabled: true` em data/tools.js tira a ferramenta da vitrine (sem apagar), para reativar depois
+  const T = (window.TOOLS || []).filter(t => !t.disabled).map(t => ({ ...t, id: t.repo.split("/")[1].toLowerCase() }));
   const C = window.CATEGORIES;
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));

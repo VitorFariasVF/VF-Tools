@@ -16,6 +16,7 @@ Acrescente um objeto em `data/tools.js`. Campos:
 | `tags` | 1–3 tags, Capitalizadas, tecnologia ou tema (`Web`, `Bot`, `IA`). Reutilize as existentes antes de criar outra |
 | `status` | `ativo` · `andamento` (trabalho em andamento) · `beta` (instável) · `arquivado` (sem manutenção) |
 | `pages` | Link do GitHub Pages (`https://vitorfariasvf.github.io/<repo>/`). Fica salvo mesmo em `andamento`; o botão "Abrir" só aparece em `ativo`/`beta` |
+| `disabled` | Opcional. `disabled: true` tira a ferramenta da vitrine sem apagar a entrada (para reativar, remova a linha) |
 
 **Regra de visibilidade:** só repositórios **públicos** entram na vitrine.
 

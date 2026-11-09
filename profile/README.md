@@ -19,9 +19,9 @@
 <sub><b>1</b> PRONTA &nbsp;·&nbsp; <b>2</b> EM CONSTRUÇÃO</sub>
 
 <p>
-  <b>01</b> &nbsp;<b><a href="https://vitorfariasvf.github.io/cronometro-github-pages/">Cronômetro</a></b><br>
-  Cronômetro simples e rápido, direto no navegador.<br>
-  <sub>UTILIDADES &nbsp;·&nbsp; <b>DISPONÍVEL</b> &nbsp;·&nbsp; # Web &nbsp;# JavaScript</sub>
+  <b>01</b> &nbsp;<b><a href="https://vitorfariasvf.github.io/mesa-de-pdf/">Mesa de PDF</a></b><br>
+  Junte, separe e organize PDFs e converta fotos em PDF, tudo no navegador.<br>
+  <sub>UTILIDADES &nbsp;·&nbsp; <b>DISPONÍVEL</b> &nbsp;·&nbsp; # PDF &nbsp;# Web</sub>
 </p>
 
 <p>
