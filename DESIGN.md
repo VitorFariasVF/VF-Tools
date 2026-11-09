@@ -1,0 +1,58 @@
+# Padrão de design — VF Tools
+
+Toda ferramenta nova (card no site **e** o app em si) segue estas regras para manter um visual único.
+
+## 1. Adicionar uma ferramenta ao site
+Acrescente um objeto em `data/tools.js`. Campos:
+
+| Campo | Regra |
+|---|---|
+| `name` | Até 35 caracteres, sem emoji, sem "Tool"/"App" no fim |
+| `repo` | `Dono/repositório` (vira o ID e o link do GitHub) |
+| `description` | **1 frase, até 90 caracteres**, começa com verbo ou substantivo, termina com ponto |
+| `category` | `utilidades` (helpers do dia a dia) · `casual` (jogos, mesas, diversão) · `profissional` (trabalho, produtividade, IA) |
+| `tags` | 1–3 tags, Capitalizadas, tecnologia ou tema (`Web`, `Bot`, `IA`). Reutilize as existentes antes de criar outra |
+| `status` | `ativo` · `beta` (instável) · `arquivado` (sem manutenção) |
+| `demo` | Opcional. Só se houver versão online; senão o botão "Abrir" não aparece |
+
+Nova categoria? Adicione em `window.CATEGORIES` (label, desc, ícone) e uma cor `--c-<nome>` em `tokens.css`.
+
+## 2. Tokens (`tokens.css`)
+Nunca use cor, espaçamento ou raio "solto". Em qualquer ferramenta:
+```html
+<link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/tokens.css">
+```
+- **Cores:** `--bg`, `--surface`, `--text`, `--muted`, `--line`, `--accent`, `--ok/--warn/--danger`. Cor da categoria: `--c-utilidades`, `--c-casual`, `--c-profissional`.
+- **Espaço:** escala 4/8/12/16/24/32/48/80 (`--s1`…`--s8`).
+- **Raios:** `--r-sm` 8, `--r-md` 12 (botões/inputs), `--r-lg` 16 (cards), `--r-pill`.
+- **Fonte:** `--font` (Inter → system-ui). Título 1.05–1.25rem peso 600/700, corpo 16px, apoio .85–.92rem.
+- **Movimento:** `--ease` + `--dur` (.2s). Animações só de `opacity`/`transform`.
+
+## 3. Princípios de UI/UX
+1. **Uma ação primária por tela** (botão `--accent` preenchido); as demais são secundárias (contorno).
+2. **Claro e escuro obrigatórios.** Teste os dois; nunca fixe `#fff`/`#000`.
+3. **Contraste mínimo 4.5:1** para texto; cor nunca é o único indicador (status sempre tem texto).
+4. **Alvos de toque ≥ 40px.** Mobile primeiro; sem rolagem horizontal; gutter lateral de 16px.
+5. **Foco visível** (`:focus-visible`) e navegação completa por teclado; `aria-label` em botões de ícone.
+6. **Respeite `prefers-reduced-motion`** (tokens já zeram `--dur`).
+7. **Estados sempre desenhados:** vazio, carregando, erro, sucesso. Mensagens curtas, em português, dizendo o que fazer.
+8. **Hierarquia:** título → descrição (cinza) → metadados. No máximo 3 níveis por card.
+9. **Sem surpresa:** ações destrutivas pedem confirmação; nada é enviado a servidores sem aviso.
+
+## 4. Persistência local (Web Storage)
+O site guarda tudo em `localStorage` na chave **`vf-tools:v1`**:
+```json
+{ "theme": "", "favorites": ["id"], "recent": [{"id":"…","ts":0}], "uses": {"id": 3},
+  "filters": {"cat":"","tag":"","status":"","sort":"name"} }
+```
+- `id` = nome do repositório em minúsculas.
+- Os dados nunca saem do navegador; "Apagar dados locais" (rodapé) limpa tudo.
+- Sempre `try/catch` em leitura/escrita (modo privado pode bloquear).
+- Ferramentas individuais devem usar sua **própria** chave `vf-tools:<id>:v1` e nunca alterar a do site. Mudou o formato? Suba a versão (`v2`).
+
+## 5. Checklist antes de publicar
+- [ ] Card preenchido conforme a tabela da seção 1
+- [ ] Testado em claro/escuro e 360px de largura
+- [ ] Só tokens, sem cores soltas
+- [ ] Foco/teclado e contraste verificados
+- [ ] Estados vazio/erro tratados

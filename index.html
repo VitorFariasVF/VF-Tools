@@ -4,41 +4,56 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VF Tools</title>
-<meta name="description" content="Coleção de ferramentas criadas por Vitor Farias.">
+<meta name="description" content="Coleção de ferramentas de Vitor Farias: utilidades, casual e profissional.">
 <link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <nav class="top">
-      <span class="logo"><b>VF</b> Tools</span>
-      <button id="theme" class="icon-btn" aria-label="Alternar tema">◐</button>
-    </nav>
-    <h1>Ferramentas que eu construí.</h1>
-    <p class="lead">Utilitários, bots e apps — filtre por categoria, tecnologia ou status.</p>
-    <div class="search"><input id="q" type="search" placeholder="Buscar ferramenta…" aria-label="Buscar"></div>
+<a class="skip" href="#tools">Ir para as ferramentas</a>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <nav class="top wrap">
+    <span class="logo"><b>VF</b> Tools</span>
+    <button id="theme" class="icon-btn" aria-label="Alternar tema">☾</button>
+  </nav>
+  <div class="hero-body wrap">
+    <p class="eyebrow reveal" style="--d:0">Open source · feito por Vitor Farias</p>
+    <h1 id="h1" class="reveal" style="--d:1">Ferramentas simples<br>para <span class="grad">problemas reais</span>.</h1>
+    <p class="lead reveal" style="--d:2">Uma coleção de apps e utilitários que eu uso e publico — para o dia a dia, para diversão e para o trabalho.</p>
+    <div class="stats reveal" style="--d:3" id="stats"></div>
+    <a class="cta reveal" style="--d:4" href="#tools" id="cta">Explorar ferramentas <span aria-hidden="true">↓</span></a>
   </div>
-</header>
-<main class="wrap">
-  <section class="filters" aria-label="Filtros">
-    <div id="cats" class="chips"></div>
-    <div class="row">
-      <div id="tags" class="chips small"></div>
-      <div class="selects">
-        <select id="status" aria-label="Status"><option value="">Todos os status</option></select>
-        <select id="sort" aria-label="Ordenar">
-          <option value="name">A–Z</option>
-          <option value="status">Status</option>
-        </select>
-      </div>
-    </div>
+</section>
+
+<main id="tools" class="wrap">
+  <section id="continue" class="continue" hidden aria-label="Continuar de onde parou">
+    <h2 class="sec">Continue de onde parou</h2>
+    <div id="recent" class="rail"></div>
   </section>
-  <p id="count" class="count"></p>
-  <section id="grid" class="grid"></section>
-  <p id="empty" class="empty" hidden>Nenhuma ferramenta encontrada. <button id="clear" class="link">Limpar filtros</button></p>
+
+  <h2 class="sec">Todas as ferramentas</h2>
+  <div class="toolbar">
+    <div class="search"><input id="q" type="search" placeholder="Buscar por nome, tag…" aria-label="Buscar ferramentas"></div>
+    <div class="selects">
+      <select id="status" aria-label="Filtrar por status"><option value="">Todos os status</option></select>
+      <select id="sort" aria-label="Ordenar">
+        <option value="name">A–Z</option><option value="used">Mais usadas</option><option value="recent">Recentes</option>
+      </select>
+    </div>
+  </div>
+  <div id="cats" class="chips" role="group" aria-label="Categorias"></div>
+  <div id="tags" class="chips small" role="group" aria-label="Tags"></div>
+  <p id="count" class="count" aria-live="polite"></p>
+  <div id="grid" class="grid"></div>
+  <p id="empty" class="empty" hidden>Nada encontrado. <button id="clear" class="link">Limpar filtros</button></p>
 </main>
-<footer class="wrap foot">© <span id="y"></span> Vitor Farias · <a href="https://github.com/VitorFariasVF">GitHub</a></footer>
+
+<footer class="wrap foot">
+  <span>© <span id="y"></span> Vitor Farias · <a href="https://github.com/VitorFariasVF">GitHub</a></span>
+  <button id="reset" class="link">Apagar dados locais</button>
+</footer>
 <script src="data/tools.js"></script>
 <script src="app.js"></script>
 </body>

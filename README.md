@@ -3,7 +3,9 @@
 Vitrine das minhas ferramentas, com busca e filtros por categoria, tecnologia e status.
 
 ## Adicionar uma ferramenta
-Edite `data/tools.js` e acrescente um objeto à lista. Nada mais é necessário.
+Edite `data/tools.js` seguindo o **[DESIGN.md](DESIGN.md)** (padrão visual, campos e checklist).
+
+Categorias: Utilidades · Casual · Profissional. Favoritos, recentes e preferências ficam no `localStorage` do navegador.
 
 ## Publicar
 GitHub → Settings → Pages → Source: branch `main`, pasta `/ (root)`.
