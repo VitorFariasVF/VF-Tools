@@ -10,9 +10,11 @@ Regras completas em [`../DESIGN.md`](../DESIGN.md).
    <link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/tokens.css">
    <link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/components.css">
    <link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/doggy.css">
+   <link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/motion.css">
    <script>window.VF_BASE = "https://vitorfariasvf.github.io/VF-Tools/";</script>
    <script src="https://vitorfariasvf.github.io/VF-Tools/dog.js"></script>
    <script src="https://vitorfariasvf.github.io/VF-Tools/help.js"></script>
+   <script src="https://vitorfariasvf.github.io/VF-Tools/motion.js"></script>
    ```
    O link "voltar" e o favicon também apontam para o site (`.../VF-Tools/` e `.../VF-Tools/assets/favicon.svg`).
 3. Defina o id em `<html data-tool="meu-id">` e também na chave do script de tema (`vf-tools:meu-id:v1`).
@@ -24,6 +26,7 @@ Regras completas em [`../DESIGN.md`](../DESIGN.md).
 |---|---|
 | `../tokens.css` | Cores, fontes, espaços, raios, movimento. Escuro por padrão; claro com `data-theme="light"` |
 | `../components.css` | Botões, chips, selos, formulários, cartões, grade, estados (vazio/erro/carregando), toast, rodapé |
+| `../motion.css` + `../motion.js` | Movimento padrão: cortina de 0,5 s com barra de carregamento ao abrir a página, fade-in ao mostrar uma tela (`main > section`, `data-view`), fade-out ao sair por link. Para trocar de tela por código use `VFMotion.swap(telaQueSai, telaQueEntra)` |
 | `../doggy.css` + `../dog.js` + `../help.js` | O mascote Doggy: botão "Ajuda", balão de boas-vindas e tour guiado com seta. Configure os passos em `window.VFTour` (3 a 6 passos) |
 | `tool.js` | `VFTool.get/set/clear`, tema compartilhado com o site, `VFTool.toast()` |
 | `../scripts/check-identity.js` | Verificador automático de identidade (veja abaixo) |

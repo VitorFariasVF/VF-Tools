@@ -36,7 +36,7 @@
       <h3><a href="https://github.com/${USER}/${encodeURIComponent(r.n)}" target="_blank" rel="noopener">${esc(r.n)}</a></h3>
       <p>${desc(r) ? esc(desc(r)) : '<span class="muted">Sem descrição.</span>'}</p>
       <div class="tags">${r.s ? `<span>${r.s} ★</span>` : ""}<span>atualizado ${ago(r.u)}</span></div>
-      <div class="actions">${siteUrl(r.h) ? `<a class="btn primary" href="${esc(siteUrl(r.h))}" target="_blank" rel="noopener">Abrir site</a>` : ""}<a class="btn" href="https://github.com/${USER}/${encodeURIComponent(r.n)}" target="_blank" rel="noopener">GitHub</a></div></article>`).join("");
+      <div class="actions">${siteUrl(r.h) ? `<a class="btn primary" href="${esc(siteUrl(r.h))}">Abrir site</a>` : ""}<a class="btn" href="https://github.com/${USER}/${encodeURIComponent(r.n)}" target="_blank" rel="noopener">GitHub</a></div></article>`).join("");
     const more = $("repo-more"); more.hidden = list.length <= SHOW;
     more.textContent = state.all ? "Mostrar menos" : `Ver todos os ${list.length} repositórios`;
     $("repos-src").textContent = source === "live" ? "Dados ao vivo do GitHub." : `Dados de ${snap.at.split("-").reverse().join("/")} (o GitHub não respondeu agora).`;

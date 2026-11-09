@@ -1,0 +1,35 @@
+/* VF Tools — movimento padrão (Editorial). Importe em TODA página:
+   <link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/motion.css">
+   <script src="https://vitorfariasvf.github.io/VF-Tools/motion.js" defer></script>
+   Regras: 0,5 s ao abrir/trocar de página (cortina + barra de carregamento + fade),
+   fade-in ao mostrar uma tela, fade-out ao sair. Sem movimento com prefers-reduced-motion. */
+:root{--dur-page:.5s;--dur-view:.5s;--dur-step:.3s;--dur-leave:.25s}
+
+/* Abertura da página: cortina que some + barra fina de carregamento (só CSS, nunca trava) */
+html::before{content:"";position:fixed;inset:0;z-index:9998;background:var(--bg,#14110f);pointer-events:none;
+  animation:vf-curtain var(--dur-page) var(--ease,ease) both}
+html::after{content:"";position:fixed;left:0;top:0;height:3px;width:100%;z-index:9999;background:var(--accent,#f0b254);
+  transform-origin:left;pointer-events:none;animation:vf-bar var(--dur-page) var(--ease,ease) both}
+@keyframes vf-curtain{0%,35%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+@keyframes vf-bar{0%{transform:scaleX(0);opacity:1}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+
+/* Saída: motion.js põe .vf-leaving no <html> antes de abrir outra página */
+html.vf-leaving::before{animation:vf-curtain-in var(--dur-leave) var(--ease,ease) both}
+html.vf-leaving::after{animation:vf-bar-in var(--dur-leave) var(--ease,ease) both}
+@keyframes vf-curtain-in{from{opacity:0;visibility:visible}to{opacity:1;visibility:visible}}
+@keyframes vf-bar-in{from{transform:scaleX(0);opacity:1}to{transform:scaleX(1);opacity:1}}
+
+/* Troca de tela: ao deixar de estar [hidden] a seção reaparece com fade-in (o navegador reinicia a animação) */
+main > section:not([hidden]), main > .card:not([hidden]), [data-view]:not([hidden]){animation:vf-in var(--dur-view) var(--ease,ease) both}
+.wz-pane:not([hidden]), [data-step-pane]:not([hidden]){animation:vf-in var(--dur-step) var(--ease,ease) both}
+dialog[open]{animation:vf-in var(--dur-step) var(--ease,ease) both}
+@keyframes vf-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* Saída de uma tela (VFMotion.swap): fade-out antes de esconder */
+.vf-out{animation:vf-out var(--dur-leave) var(--ease,ease) both!important;pointer-events:none}
+@keyframes vf-out{from{opacity:1}to{opacity:0;transform:translateY(-6px)}}
+
+@media (prefers-reduced-motion:reduce){
+  html::before,html::after{display:none}
+  main > section:not([hidden]), main > .card:not([hidden]), [data-view]:not([hidden]), .wz-pane:not([hidden]), [data-step-pane]:not([hidden]), dialog[open], .vf-out{animation:none!important}
+}
+@media print{html::before,html::after{display:none}}

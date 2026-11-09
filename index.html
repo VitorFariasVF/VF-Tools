@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="doggy.css">
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <a class="skip" href="#tools">Ir para as ferramentas</a>
@@ -79,7 +80,7 @@
    aparece em até 1 minuto, sem Ctrl+Shift+R. Ordem preservada (document.write). */
 (function () {
   var v = Math.floor(Date.now() / 60000);
-  ["data/tools.js", "data/repos.js", "data/descriptions.js", "app.js", "repos.js", "dog.js", "help.js"].forEach(function (f) {
+  ["data/tools.js", "data/repos.js", "data/descriptions.js", "app.js", "repos.js", "dog.js", "help.js", "motion.js"].forEach(function (f) {
     document.write('<script src="' + f + '?v=' + v + '"><\/script>');
   });
 })();

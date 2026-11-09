@@ -25,6 +25,10 @@ Nova categoria? Adicione em `window.CATEGORIES` (label, desc, ícone) e uma cor 
 ## 1b. Identidade
 Estilo **Editorial**: fundo quente escuro, títulos em serifa (`--font-display`) com ênfase em itálico âmbar (`<em>` com `--accent`), corpo em sans. Cada ferramenta é uma **linha numerada** (01, 02…) com meta → título → descrição → tags à esquerda e ações à direita. O âmbar é reservado ao botão principal e ao destaque do título; as cores de categoria aparecem só no ícone e no rótulo. Sem emojis: ícones SVG de traço (1.8px, `currentColor`).
 
+**Movimento (`motion.css` + `motion.js`, obrigatório):** toda página abre com uma cortina de 0,5 s (`--dur-page`) e uma barra fina de carregamento âmbar; telas que aparecem (`main > section`, `[data-view]`) entram com fade-in de 0,5 s (`--dur-view`), passos/diálogos com 0,3 s (`--dur-step`); sair por um link faz fade-out de 0,25 s antes de navegar, e `VFMotion.swap(sai, entra)` faz o mesmo entre telas da ferramenta. Nada de animação decorativa fora disso. Com `prefers-reduced-motion` e na impressão tudo fica desligado.
+
+**Links:** ferramentas do próprio VF Tools (site, "Usar agora", "Abrir site", Recentes) abrem **na mesma aba**, e o "← VF.Tools" de cada ferramenta volta nela; assim não se acumulam abas. Só links externos de código (GitHub) usam `target="_blank" rel="noopener"`.
+
 **Mascote Doggy:** a foto real do cachorro do autor (`assets/doggy.jpg`) em círculo com borda branca, mais um adesivo por pose (`dog.js`): `oi`, `au`, `busca`, `cats`, `acao`, `amor`, `tema`, `fim`. Um passo do tour = uma pose. O botão sempre mostra o rótulo "Ajuda"; animações repetem no máximo 3 vezes e respeitam `prefers-reduced-motion`.
 
 ## 2. Tokens (`tokens.css`)

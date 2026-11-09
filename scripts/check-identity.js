@@ -26,6 +26,7 @@ for (const f of files) {
   check(/components\.css/.test(html), "usa components.css", "não carrega components.css", "warn");
   check(/data-theme="dark"/.test(html), "escuro por padrão (data-theme=\"dark\")", "o <html> precisa de data-theme=\"dark\" (escuro é o padrão)");
   check(/id="theme"/.test(html), "botão de tema (#theme)", "falta o botão de tema com id=\"theme\"");
+  check(/motion\.css/.test(html) && /motion\.js/.test(html), "movimento padrão (motion.css + motion.js)", "falta motion.css/motion.js (transições de 0,5 s do padrão)", "warn");
   check(/class="skip"/.test(html), "skip link", "falta o link \"Ir para o conteúdo\" (class=\"skip\")");
   check(/<main[\s>]/.test(html), "landmark <main>", "falta <main>");
   check(/<h1[\s>]/.test(html), "tem <h1>", "falta <h1>");

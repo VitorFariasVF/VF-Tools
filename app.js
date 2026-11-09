@@ -43,7 +43,7 @@
       <h3>${esc(t.name)}</h3><p>${esc(t.description)}</p>
       <div class="tags">${(t.tags || []).map(x => `<span>${esc(x)}</span>`).join("")}</div>
       <div class="actions">
-        ${live(t) && t.pages ? `<a class="btn primary" data-use href="${esc(t.pages)}" target="_blank" rel="noopener">Usar agora</a><a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Ver código</a>` : `<a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Acompanhar no GitHub</a>`}
+        ${live(t) && t.pages ? `<a class="btn primary" data-use href="${esc(t.pages)}">Usar agora</a><a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Ver código</a>` : `<a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Acompanhar no GitHub</a>`}
         <button class="fav" aria-pressed="${fav}" aria-label="${fav ? "Remover " + esc(t.name) + " dos favoritos" : "Adicionar " + esc(t.name) + " aos favoritos"}">${STAR}</button>
       </div></article>`;
   };
@@ -87,7 +87,7 @@
         <div class="meta"><span class="cat">${svg(ICON[t.category])}${esc(C[t.category].label)}</span><span class="badge ${live(t) ? "ok" : "wip"}">${esc(SL[t.status] || t.status)}</span></div>
         <h3>${esc(t.name)}</h3>
         <div class="actions">
-          ${live(t) && t.pages ? `<a class="btn primary" data-use href="${esc(t.pages)}" target="_blank" rel="noopener">Usar agora</a>` : `<a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Acompanhar no GitHub</a>`}
+          ${live(t) && t.pages ? `<a class="btn primary" data-use href="${esc(t.pages)}">Usar agora</a>` : `<a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Acompanhar no GitHub</a>`}
           <button class="fav" aria-pressed="true" aria-label="Remover ${esc(t.name)} dos favoritos">${STAR}</button>
         </div></article>`;
     }).join("");
@@ -96,7 +96,7 @@
   function renderRecent() {
     const items = store.recent.map(r => byId(r.id)).filter(Boolean);
     $("continue").hidden = !items.length;
-    $("recent").innerHTML = items.map(t => `<a data-id="${t.id}" href="${esc(live(t) && t.pages ? t.pages : "https://github.com/" + t.repo)}" target="_blank" rel="noopener">${esc(t.name)}</a>`).join("");
+    $("recent").innerHTML = items.map(t => `<a data-id="${t.id}" href="${esc(live(t) && t.pages ? t.pages : "https://github.com/" + t.repo)}"${live(t) && t.pages ? "" : ' target="_blank" rel="noopener"'}>${esc(t.name)}</a>`).join("");
   }
 
   /* ---------- Eventos ---------- */
