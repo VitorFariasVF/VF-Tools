@@ -2,6 +2,8 @@
 
 Rascunhos escritos a partir dos nomes. Para o GitHub mostrar a descrição no repositório, copie cada uma em **Settings (ou a engrenagem ao lado de "About") → Description**. Quando você preencher lá, o site passa a usar a do GitHub.
 
+Para aplicar todas de uma vez (precisa do GitHub CLI logado): `APPLY=1 bash scripts/apply-descriptions.sh`. Sem `APPLY=1` ele só mostra os comandos.
+
 | Repositório | Descrição |
 |---|---|
 | `VF-Tools` | Vitrine das minhas ferramentas open source, com padrão visual e modelo para novas ferramentas. |
