@@ -14,7 +14,10 @@
     if (d < 1) return "hoje"; if (d < 30) return rtf.format(-d, "day"); if (d < 365) return rtf.format(-Math.round(d / 30), "month"); return rtf.format(-Math.round(d / 365), "year");
   };
   const map = r => ({ n: r.name, d: r.description || "", l: r.language || "", s: r.stargazers_count || 0, u: (r.pushed_at || "").slice(0, 10), h: r.homepage || "", f: !!r.fork });
-  const safeUrl = u => /^https?:\/\//i.test(u) ? u : "";
+  const siteUrl = u => { u = (u || "").trim(); if (!u) return ""; if (!/^https?:\/\//i.test(u)) u = "https://" + u; return /^https?:\/\/[^\s]+$/i.test(u) ? u : ""; };
+  // descrição: a do GitHub (se for texto de verdade) > a do arquivo data/descriptions.js
+  const LOCAL = window.REPO_DESCRIPTIONS || {};
+  const desc = r => (r.d && !/^https?:\/\//i.test(r.d.trim()) ? r.d : LOCAL[r.n] || "");
 
   function render() {
     const total = items.length, counts = {};
@@ -31,9 +34,9 @@
     $("repo-list").innerHTML = shown.map(r => `<article class="row" style="--c:${color(r.l)}">
       <div class="meta"><span class="cat">${r.l ? `<span class="dot" style="--lc:${color(r.l)}"></span>${esc(r.l)}` : "Sem linguagem"}</span>${r.f ? '<span class="badge">fork</span>' : ""}</div>
       <h3><a href="https://github.com/${USER}/${encodeURIComponent(r.n)}" target="_blank" rel="noopener">${esc(r.n)}</a></h3>
-      <p>${r.d ? esc(r.d) : '<span class="muted">Sem descrição.</span>'}</p>
+      <p>${desc(r) ? esc(desc(r)) : '<span class="muted">Sem descrição.</span>'}</p>
       <div class="tags">${r.s ? `<span>${r.s} ★</span>` : ""}<span>atualizado ${ago(r.u)}</span></div>
-      <div class="actions">${safeUrl(r.h) ? `<a class="btn primary" href="${esc(r.h)}" target="_blank" rel="noopener">Abrir site</a>` : ""}<a class="btn" href="https://github.com/${USER}/${encodeURIComponent(r.n)}" target="_blank" rel="noopener">GitHub</a></div></article>`).join("");
+      <div class="actions">${siteUrl(r.h) ? `<a class="btn primary" href="${esc(siteUrl(r.h))}" target="_blank" rel="noopener">Abrir site</a>` : ""}<a class="btn" href="https://github.com/${USER}/${encodeURIComponent(r.n)}" target="_blank" rel="noopener">GitHub</a></div></article>`).join("");
     const more = $("repo-more"); more.hidden = list.length <= SHOW;
     more.textContent = state.all ? "Mostrar menos" : `Ver todos os ${list.length} repositórios`;
     $("repos-src").textContent = source === "live" ? "Dados ao vivo do GitHub." : `Dados de ${snap.at.split("-").reverse().join("/")} (o GitHub não respondeu agora).`;

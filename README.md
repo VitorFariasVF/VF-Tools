@@ -18,4 +18,4 @@ Site 100% estático (HTML/CSS/JS), sem build.
 Pasta [`template/`](template/): página-modelo (com o Doggy), helper de armazenamento/tema e checklist. Estilos compartilhados em `tokens.css`, `components.css` e `doggy.css`. Para conferir se uma ferramenta segue a identidade: `node scripts/check-identity.js sua-ferramenta/index.html`.
 
 ## Repositórios públicos
-A seção "Repositórios públicos" lista tudo o que está público no GitHub, com a linguagem de cada um e filtro por linguagem. Os dados vêm ao vivo da API do GitHub (cache de 1 h); se ela falhar, o site usa o retrato em `data/repos.js`. Lógica em `repos.js`.
+A seção "Repositórios públicos" lista tudo o que está público no GitHub, com a linguagem de cada um e filtro por linguagem. Os dados vêm ao vivo da API do GitHub (cache de 1 h); se ela falhar, o site usa o retrato em `data/repos.js`. Lógica em `repos.js`. As descrições vêm do campo "About" do GitHub; quando está vazio, usa `data/descriptions.js` (lista para colar no GitHub em `data/DESCRICOES.md`).
