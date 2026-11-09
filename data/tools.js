@@ -21,7 +21,7 @@ window.TOOLS = [
     pages: "https://vitorfariasvf.github.io/mesa-de-pdf/" },
   { name: "Relatório Fácil", repo: "VitorFariasVF/relatorio-facil",
     description: "Transforme uma planilha em relatório com gráficos, pronto para PDF ou HTML, no navegador.",
-    category: "profissional", tags: ["Relatórios", "Web"], status: "andamento",
+    category: "profissional", tags: ["Relatórios", "Web"], status: "ativo",
     pages: "https://vitorfariasvf.github.io/relatorio-facil/" },
   { name: "Backup & Editor de Save — R.E.P.O", repo: "VitorFariasVF/Ferramenta-de-backup-e-editor-de-save-r.e.p.o",
     description: "Faça backup e edite os saves do jogo R.E.P.O com segurança.",
