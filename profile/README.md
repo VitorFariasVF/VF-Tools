@@ -1,10 +1,12 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-  <img src="assets/banner-dark.svg" alt="Coisas que eu construí e deixei abertas. Utilitários, jogos e apps do Vitor Farias." width="100%">
+  <img src="assets/banner-dark.svg" alt="Coisas que eu construí e deixei abertas. Vitor Farias, open source." width="100%">
 </picture>
 
-<p align="center">
+**Utilitários, jogos e apps do Vitor Farias.** Gratuitos, open source, sem cadastro e sem rastreamento.
+
+<p>
   <a href="https://vitorfariasvf.github.io/VF-Tools/"><b>Ver todas as ferramentas →</b></a>
   &nbsp;·&nbsp;
   <a href="https://github.com/VitorFariasVF/VF-Tools">Código do site</a>
@@ -16,32 +18,23 @@
 
 <sub><b>1</b> PRONTA &nbsp;·&nbsp; <b>2</b> EM CONSTRUÇÃO</sub>
 
-<table>
-  <tr>
-    <td width="64" valign="top"><h3>01</h3></td>
-    <td valign="top">
-      <h3><a href="https://vitorfariasvf.github.io/cronometro-github-pages/">Cronômetro</a></h3>
-      Cronômetro simples e rápido, direto no navegador.<br>
-      <sub>UTILIDADES &nbsp;·&nbsp; <b>DISPONÍVEL</b> &nbsp;·&nbsp; # Web &nbsp;# JavaScript</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="64" valign="top"><h3>02</h3></td>
-    <td valign="top">
-      <h3><a href="https://github.com/VitorFariasVF/Ferramenta-de-backup-e-editor-de-save-r.e.p.o">Backup &amp; Editor de Save — R.E.P.O</a></h3>
-      Faça backup e edite os saves do jogo R.E.P.O com segurança.<br>
-      <sub>UTILIDADES &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # Saves &nbsp;# Desktop</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="64" valign="top"><h3>03</h3></td>
-    <td valign="top">
-      <h3><a href="https://github.com/VitorFariasVF/dnd5e-builder">D&amp;D 5e Builder</a></h3>
-      Monte fichas de personagem de D&amp;D 5e com escolhas guiadas.<br>
-      <sub>CASUAL &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # D&amp;D &nbsp;# Web</sub>
-    </td>
-  </tr>
-</table>
+<p>
+  <b>01</b> &nbsp;<b><a href="https://vitorfariasvf.github.io/cronometro-github-pages/">Cronômetro</a></b><br>
+  Cronômetro simples e rápido, direto no navegador.<br>
+  <sub>UTILIDADES &nbsp;·&nbsp; <b>DISPONÍVEL</b> &nbsp;·&nbsp; # Web &nbsp;# JavaScript</sub>
+</p>
+
+<p>
+  <b>02</b> &nbsp;<b><a href="https://github.com/VitorFariasVF/Ferramenta-de-backup-e-editor-de-save-r.e.p.o">Backup &amp; Editor de Save — R.E.P.O</a></b><br>
+  Faça backup e edite os saves do jogo R.E.P.O com segurança.<br>
+  <sub>UTILIDADES &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # Saves &nbsp;# Desktop</sub>
+</p>
+
+<p>
+  <b>03</b> &nbsp;<b><a href="https://github.com/VitorFariasVF/dnd5e-builder">D&amp;D 5e Builder</a></b><br>
+  Monte fichas de personagem de D&amp;D 5e com escolhas guiadas.<br>
+  <sub>CASUAL &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # D&amp;D &nbsp;# Web</sub>
+</p>
 
 <img src="assets/divider.svg" width="100%" alt="">
 
