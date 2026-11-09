@@ -12,8 +12,10 @@ Acrescente um objeto em `data/tools.js`. Campos:
 | `description` | **1 frase, até 90 caracteres**, começa com verbo ou substantivo, termina com ponto |
 | `category` | `utilidades` (helpers do dia a dia) · `casual` (jogos, mesas, diversão) · `profissional` (trabalho, produtividade, IA) |
 | `tags` | 1–3 tags, Capitalizadas, tecnologia ou tema (`Web`, `Bot`, `IA`). Reutilize as existentes antes de criar outra |
-| `status` | `ativo` · `beta` (instável) · `arquivado` (sem manutenção) |
-| `demo` | Opcional. Só se houver versão online; senão o botão "Abrir" não aparece |
+| `status` | `ativo` · `andamento` (trabalho em andamento) · `beta` (instável) · `arquivado` (sem manutenção) |
+| `pages` | Link do GitHub Pages (`https://vitorfariasvf.github.io/<repo>/`). Fica salvo mesmo em `andamento`; o botão "Abrir" só aparece em `ativo`/`beta` |
+
+**Regra de visibilidade:** só repositórios **públicos** entram na vitrine.
 
 Nova categoria? Adicione em `window.CATEGORIES` (label, desc, ícone) e uma cor `--c-<nome>` em `tokens.css`.
 

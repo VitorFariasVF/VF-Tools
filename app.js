@@ -1,6 +1,8 @@
 (() => {
   const T = (window.TOOLS || []).map(t => ({ ...t, id: t.repo.split("/")[1].toLowerCase() }));
   const C = window.CATEGORIES;
+  const SL = { ativo: "ativo", andamento: "🚧 em andamento", beta: "beta", arquivado: "arquivado" };
+  const link = t => t.status === "ativo" || t.status === "beta" ? t.pages : "";
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const uniq = a => [...new Set(a)].sort((x, y) => x.localeCompare(y, "pt"));
@@ -51,11 +53,11 @@
     $("grid").innerHTML = list.map(t => {
       const fav = store.favorites.includes(t.id);
       return `<article class="card hidden-in" data-cat="${t.category}" data-id="${t.id}">
-        <div class="meta"><span class="cat">${C[t.category].icon} ${esc(C[t.category].label)}</span><span class="status ${esc(t.status)}">${esc(t.status)}</span></div>
+        <div class="meta"><span class="cat">${C[t.category].icon} ${esc(C[t.category].label)}</span><span class="status ${esc(t.status)}">${esc(SL[t.status] || t.status)}</span></div>
         <h3>${esc(t.name)}</h3><p>${esc(t.description)}</p>
         <div class="tags">${(t.tags || []).map(x => `<span>${esc(x)}</span>`).join("")}</div>
         <div class="actions">
-          ${t.demo ? `<a class="btn primary" data-use href="${esc(t.demo)}" target="_blank" rel="noopener">Abrir</a>` : ""}
+          ${link(t) ? `<a class="btn primary" data-use href="${esc(link(t))}" target="_blank" rel="noopener">Abrir</a>` : t.status === "andamento" ? `<span class="wip">Trabalho em andamento</span>` : ""}
           <a class="btn" data-use href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener">GitHub</a>
           <button class="fav" aria-pressed="${fav}" aria-label="${fav ? "Remover dos" : "Adicionar aos"} favoritos">${fav ? "★" : "☆"}</button>
         </div></article>`;
@@ -74,7 +76,7 @@
   function renderRecent() {
     const items = store.recent.map(r => byId(r.id)).filter(Boolean).slice(0, 6);
     $("continue").hidden = !items.length;
-    $("recent").innerHTML = items.map(t => `<a class="mini" data-cat="${t.category}" data-id="${t.id}" href="${esc(t.demo || "https://github.com/" + t.repo)}" target="_blank" rel="noopener">
+    $("recent").innerHTML = items.map(t => `<a class="mini" data-cat="${t.category}" data-id="${t.id}" href="${esc(link(t) || "https://github.com/" + t.repo)}" target="_blank" rel="noopener">
       <small>${C[t.category].icon} ${esc(C[t.category].label)}</small><h3>${esc(t.name)}</h3><small>${store.uses[t.id] || 0}× aberto</small></a>`).join("");
   }
   $("recent").addEventListener("click", e => { const a = e.target.closest(".mini"); if (a) track(a.dataset.id); });
@@ -98,7 +100,7 @@
   });
 
   /* ---------- Controles ---------- */
-  $("status").insertAdjacentHTML("beforeend", uniq(T.map(t => t.status)).map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join(""));
+  $("status").insertAdjacentHTML("beforeend", uniq(T.map(t => t.status)).map(s => `<option value="${esc(s)}">${esc(SL[s] || s)}</option>`).join(""));
   $("status").onchange = e => { f.status = e.target.value; persist(); render(); };
   $("sort").onchange = e => { f.sort = e.target.value; persist(); render(); };
   $("q").oninput = e => { q = e.target.value; render(); };
