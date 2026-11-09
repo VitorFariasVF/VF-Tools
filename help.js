@@ -13,7 +13,7 @@
     { sel: "#q", pose: "busca", text: "Busque pelo nome, tag ou descrição. Dica: aperte a tecla / para vir direto para cá." },
     { sel: "#cats", pose: "cats", text: "Filtre por categoria: Utilidades, Casual ou Profissional. O número mostra quantas ferramentas há em cada uma." },
     { sel: ".row .actions", pose: "acao", text: "Aqui você usa a ferramenta, vê o código ou acompanha o desenvolvimento no GitHub. O selo perto do nome diz se ela está disponível ou em construção." },
-    { sel: ".row .fav", pose: "amor", text: "Toque na estrela para favoritar. Suas favoritas sobem na lista e ficam salvas só neste navegador." },
+    { sel: ".row .fav", pose: "amor", text: "Toque na estrela para favoritar. Suas favoritas aparecem em “Suas favoritas”, no topo, e ficam salvas só neste navegador." },
     { sel: "#theme", pose: "tema", text: "Alterne entre o tema escuro e o claro quando preferir." },
     { sel: "#langs", pose: "cats", text: "Mais abaixo estão todos os meus repositórios públicos. Toque numa linguagem para filtrar a lista." },
     { sel: "#foot-priv", pose: "fim", text: "Aqui você apaga o que guardei neste navegador ou revê este tutorial. Nada sai do seu aparelho. Bom uso!" }

@@ -4,6 +4,7 @@
 window.REPO_DESCRIPTIONS = {
   "VF-Tools": "Vitrine das minhas ferramentas open source, com padrão visual e modelo para novas ferramentas.",
   "cronometro-github-pages": "Cronômetro simples e rápido, publicado com GitHub Pages.",
+  "mesa-de-pdf": "Junte, separe e organize PDFs e converta fotos em PDF, tudo no navegador.",
   "dnd5e-builder": "Montador de fichas de personagem de D&D 5e, com escolhas guiadas.",
   "Ferramenta-de-backup-e-editor-de-save-r.e.p.o": "Faz backup e edita os saves do jogo R.E.P.O.",
   "SIte-FZ-piloto": "Piloto do site do projeto FZ.",

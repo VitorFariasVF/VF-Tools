@@ -15,7 +15,7 @@ window.TOOLS = [
     pages: "https://vitorfariasvf.github.io/cronometro-github-pages/" },
   { name: "Mesa de PDF", repo: "VitorFariasVF/mesa-de-pdf",
     description: "Junte, separe e organize PDFs e converta fotos em PDF, tudo no navegador.",
-    category: "utilidades", tags: ["PDF", "Web"], status: "andamento",
+    category: "utilidades", tags: ["PDF", "Web"], status: "ativo",
     pages: "https://vitorfariasvf.github.io/mesa-de-pdf/" },
   { name: "Backup & Editor de Save — R.E.P.O", repo: "VitorFariasVF/Ferramenta-de-backup-e-editor-de-save-r.e.p.o",
     description: "Faça backup e edite os saves do jogo R.E.P.O com segurança.",

@@ -48,7 +48,7 @@
   };
 
   function render() {
-    const active = document.activeElement, keep = active && (active.dataset.k ? `[data-k="${active.dataset.k}"][data-v="${active.dataset.v}"]` : active.classList.contains("fav") ? `[data-id="${active.closest(".row").dataset.id}"] .fav` : "");
+    const active = document.activeElement, keep = active && (active.dataset.k ? `[data-k="${active.dataset.k}"][data-v="${active.dataset.v}"]` : active.classList.contains("fav") && active.closest(".row, .favcard") ? `[data-id="${active.closest(".row, .favcard").dataset.id}"] .fav` : "");
     const present = Object.keys(C).filter(k => T.some(t => t.category === k));
     const favN = store.favorites.filter(id => byId(id)).length;
     if (f.cat === "__fav" && !favN) f.cat = "";
@@ -71,8 +71,25 @@
     } else $("list").innerHTML = list.map(rowHtml).join("");
     $("count").textContent = list.length === T.length ? `${T.length} ferramentas` : `${list.length} de ${T.length} ferramentas`;
     $("empty").hidden = list.length > 0;
-    syncUrl(); renderRecent();
+    syncUrl(); renderFavs(); renderRecent();
     if (keep) { const el = document.querySelector(keep); el && el.focus({ preventScroll: true }); }
+  }
+
+  // "Suas favoritas": as ferramentas marcadas com ★, na ordem em que foram favoritadas
+  function renderFavs() {
+    const items = store.favorites.map(byId).filter(Boolean);
+    $("favs").hidden = !items.length;
+    $("favcount").textContent = items.length ? `${items.length} ${items.length === 1 ? "ferramenta" : "ferramentas"}` : "";
+    $("favgrid").innerHTML = items.map(t => {
+      const gh = "https://github.com/" + t.repo;
+      return `<article class="favcard" data-cat="${t.category}" data-id="${t.id}">
+        <div class="meta"><span class="cat">${svg(ICON[t.category])}${esc(C[t.category].label)}</span><span class="badge ${live(t) ? "ok" : "wip"}">${esc(SL[t.status] || t.status)}</span></div>
+        <h3>${esc(t.name)}</h3>
+        <div class="actions">
+          ${live(t) && t.pages ? `<a class="btn primary" data-use href="${esc(t.pages)}" target="_blank" rel="noopener">Usar agora</a>` : `<a class="btn" data-use href="${gh}" target="_blank" rel="noopener">Acompanhar no GitHub</a>`}
+          <button class="fav" aria-pressed="true" aria-label="Remover ${esc(t.name)} dos favoritos">${STAR}</button>
+        </div></article>`;
+    }).join("");
   }
 
   function renderRecent() {
@@ -86,6 +103,11 @@
   $("list").addEventListener("click", e => {
     const row = e.target.closest(".row"); if (!row) return;
     if (e.target.closest(".fav")) toggleFav(row.dataset.id); else if (e.target.closest("[data-use]")) track(row.dataset.id);
+  });
+  $("favgrid").addEventListener("click", e => {
+    const card = e.target.closest(".favcard"); if (!card) return;
+    if (e.target.closest(".fav")) { const name = byId(card.dataset.id).name; toggleFav(card.dataset.id); toast(`${name} removida dos favoritos.`); }
+    else if (e.target.closest("[data-use]")) track(card.dataset.id);
   });
   $("recent").addEventListener("click", e => { const a = e.target.closest("a"); if (a) track(a.dataset.id); });
   $("status").onchange = e => { f.status = e.target.value; persist(); render(); };

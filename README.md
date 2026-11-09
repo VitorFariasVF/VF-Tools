@@ -4,6 +4,9 @@
 
 Vitrine das minhas ferramentas, com busca e filtros por categoria, tecnologia e status.
 
+## Favoritas e histórico
+A estrela marca uma ferramenta como favorita: ela aparece na seção **Suas favoritas**, no topo, e também no filtro "★ Favoritos". Favoritas, histórico de uso e tema ficam só no `localStorage` do navegador (chave `vf-tools:v1`).
+
 ## Adicionar uma ferramenta
 Edite `data/tools.js` seguindo o **[DESIGN.md](DESIGN.md)** (padrão visual, campos e checklist).
 
