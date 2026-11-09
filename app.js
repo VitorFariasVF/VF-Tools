@@ -109,7 +109,7 @@
   const root = document.documentElement;
   if (store.theme) root.dataset.theme = store.theme;
   $("theme").onclick = () => {
-    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+    const dark = (root.dataset.theme || "dark") === "dark";
     store.theme = root.dataset.theme = dark ? "light" : "dark"; persist();
   };
 

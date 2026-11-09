@@ -30,9 +30,9 @@ Nunca use cor, espaçamento ou raio "solto". Em qualquer ferramenta:
 
 ## 3. Princípios de UI/UX
 1. **Uma ação primária por tela** (botão `--accent` preenchido); as demais são secundárias (contorno).
-2. **Claro e escuro obrigatórios.** Teste os dois; nunca fixe `#fff`/`#000`.
+2. **Escuro é o padrão; claro é opcional** (`data-theme="light"`). Teste os dois; nunca fixe `#fff`/`#000`.
 3. **Contraste mínimo 4.5:1** para texto; cor nunca é o único indicador (status sempre tem texto).
-4. **Alvos de toque ≥ 40px.** Mobile primeiro; sem rolagem horizontal; gutter lateral de 16px.
+4. **Alvos de toque ≥ 40px.** Mobile primeiro (breakpoint 640px: 1 coluna, filtros em faixa rolável, inputs 16px); sem rolagem horizontal da página; gutter lateral de 16px.
 5. **Foco visível** (`:focus-visible`) e navegação completa por teclado; `aria-label` em botões de ícone.
 6. **Respeite `prefers-reduced-motion`** (tokens já zeram `--dur`).
 7. **Estados sempre desenhados:** vazio, carregando, erro, sucesso. Mensagens curtas, em português, dizendo o que fazer.
