@@ -94,14 +94,16 @@ h1 em{color:var(--accent)}
 
 /* ---------- Assistente Vi (ajuda + tour) ---------- */
 .help{position:fixed;right:var(--s4);bottom:var(--s4);z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:var(--s3)}
-.help-fab{height:56px;min-width:56px;padding:0 var(--s2);border-radius:var(--r-pill);border:1px solid var(--muted);background:var(--surface);color:var(--text);font:600 .9rem var(--font);cursor:pointer;display:flex;align-items:center;gap:var(--s2);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent),0 8px 24px rgba(0,0,0,.35);transition:transform var(--dur) var(--ease)}
+.help-fab{position:relative;height:56px;min-width:56px;padding:0 var(--s2);border-radius:var(--r-pill);border:1px solid var(--muted);background:var(--surface);color:var(--text);font:600 .9rem var(--font);cursor:pointer;display:flex;align-items:center;gap:var(--s2);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent),0 8px 24px rgba(0,0,0,.35);transition:transform var(--dur) var(--ease)}
 :root[data-theme=light] .help-fab{box-shadow:0 6px 20px rgba(60,40,10,.2)}
 .help-fab:hover{transform:scale(1.04)}
 .fab-label{display:none;padding-right:var(--s3)}
 @media(min-width:700px){.fab-label{display:inline}}
-.vi{position:relative;display:block;width:42px;height:42px;flex:none}
-.vi img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--accent);display:block}
-.paw{position:absolute;right:-8px;top:-8px;width:20px;height:20px;fill:var(--accent);stroke:var(--surface);stroke-width:1.4;transform-origin:50% 90%}
+.vi{position:relative;display:block;width:46px;height:46px;flex:none}
+.dog{width:100%;height:100%;overflow:visible;display:block}
+.dog .tile{fill:color-mix(in srgb,var(--accent) 24%,var(--surface))}
+.dog .wave{transform-origin:76px 88px}
+.help-fab.call{border-color:var(--accent)}
 .help-bubble{position:relative;width:min(260px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--accent);border-radius:var(--r-md);padding:var(--s4);box-shadow:0 10px 32px rgba(0,0,0,.4)}
 .help-bubble::after{content:"";position:absolute;right:28px;bottom:-8px;width:14px;height:14px;background:var(--surface);border-right:1px solid var(--accent);border-bottom:1px solid var(--accent);transform:rotate(45deg)}
 .help-bubble p{margin:0 var(--s5) var(--s3) 0;font-size:.92rem}
@@ -118,9 +120,9 @@ body.touring .help{display:none}
 .tour-card[data-pos=top]{bottom:auto;top:var(--s5)}
 .tour-card[data-side=left]{right:auto;left:var(--s5)}
 .tour-card:focus{outline:none}
-.tour-head{display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s2)}
+.tour-head{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s2)}
 .tour-head strong{font:600 1.05rem var(--font-display)}
-.tour-av .vi{width:34px;height:34px}
+.tour-av{width:56px;height:56px;margin:-6px 0;flex:none}.tour-av .vi{width:56px;height:56px}
 .tour-count{margin-left:auto;color:var(--muted);font-size:.8rem}
 .tour-text{margin:0 0 var(--s3);font-size:.98rem;line-height:1.5}
 .tour-dots{display:flex;gap:6px;margin-bottom:var(--s3)}.tour-dots i{width:8px;height:8px;border-radius:50%;background:color-mix(in srgb,var(--muted) 55%,transparent)}.tour-dots i.on{background:var(--accent);width:20px;border-radius:8px}
@@ -128,15 +130,20 @@ body.touring .help{display:none}
 .tour-actions .skip-t{color:var(--muted);min-width:44px}
 .tour-actions .btn.ghost{border-color:transparent}.tour-actions .btn.primary{min-width:96px;justify-content:center}
 @media(prefers-reduced-motion:no-preference){
-  .help-fab.wave .paw{animation:wave 1s ease-in-out 3}
-  .help-fab.wave .vi img{animation:tilt 1s ease-in-out 3}
+  .help-fab.wave .wave{animation:wave 1s ease-in-out 3}
+  .help-fab.call{animation:hop .95s var(--ease) 2}
+  .help-fab.call::after{content:"";position:absolute;inset:-4px;border-radius:var(--r-pill);border:2px solid var(--accent);animation:ping .95s ease-out 2;pointer-events:none}
+  .dog .bob{animation:bobs 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  .tour-av .dog{animation:pop .45s var(--ease) both}
   .help-bubble{animation:pop .4s var(--ease) both}
   .tour-ring{transition:left .35s var(--ease),top .35s var(--ease),width .35s var(--ease),height .35s var(--ease)}
   .tour-arrow{transition:left .35s var(--ease),top .35s var(--ease)}
   .tour-arrow svg{animation:point .9s ease-in-out 4}
   .tour-arrow.down svg{animation:pointd .9s ease-in-out 4}
-  @keyframes wave{0%,100%{transform:rotate(0)}25%{transform:rotate(-28deg)}75%{transform:rotate(24deg)}}
-  @keyframes tilt{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg)}75%{transform:rotate(5deg)}}
+  @keyframes wave{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(10deg)}}
+  @keyframes hop{0%,100%{transform:translateY(0)}20%{transform:translateY(-16px) rotate(-5deg)}40%{transform:translateY(0)}60%{transform:translateY(-9px) rotate(4deg)}}
+  @keyframes ping{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(1.5)}}
+  @keyframes bobs{50%{transform:translateY(-3px)}}
   @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.96)}}
   @keyframes point{50%{transform:translateY(7px)}}
   @keyframes pointd{0%,100%{transform:rotate(180deg) translateY(0)}50%{transform:rotate(180deg) translateY(7px)}}

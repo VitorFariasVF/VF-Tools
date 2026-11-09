@@ -7,16 +7,15 @@
   const markSeen = () => { const st = S.get(); st.help = { ...(st.help || {}), seen: true }; S.save(); };
   const seen = () => !!(S.get().help || {}).seen;
 
-  const PAW = '<svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16" rx="6" ry="5"/><circle cx="5" cy="10" r="2.4"/><circle cx="9.5" cy="5.5" r="2.4"/><circle cx="14.5" cy="5.5" r="2.4"/><circle cx="19" cy="10" r="2.4"/></svg>';
-  const MASCOT = (paw = true) => `<span class="vi"><img src="assets/vi.jpg" alt="" width="96" height="96">${paw ? PAW : ""}</span>`;
+  const MASCOT = (pose = "oi") => `<span class="vi">${window.ViDog(pose)}</span>`;
 
   const STEPS = [
-    { sel: "#q", text: "Busque pelo nome, tag ou descrição. Dica: aperte a tecla / para vir direto para cá." },
-    { sel: "#cats", text: "Filtre por categoria: Utilidades, Casual ou Profissional. O número mostra quantas ferramentas há em cada uma." },
-    { sel: ".row .actions", text: "Aqui você usa a ferramenta, vê o código ou acompanha o desenvolvimento no GitHub. O selo perto do nome diz se ela está disponível ou em construção." },
-    { sel: ".row .fav", text: "Toque na estrela para favoritar. Suas favoritas sobem na lista e ficam salvas só neste navegador." },
-    { sel: "#theme", text: "Alterne entre o tema escuro e o claro quando preferir." },
-    { sel: "#foot-priv", text: "Aqui você apaga o que guardei neste navegador ou revê este tutorial. Nada sai do seu aparelho. Bom uso!" }
+    { sel: "#q", pose: "busca", text: "Busque pelo nome, tag ou descrição. Dica: aperte a tecla / para vir direto para cá." },
+    { sel: "#cats", pose: "cats", text: "Filtre por categoria: Utilidades, Casual ou Profissional. O número mostra quantas ferramentas há em cada uma." },
+    { sel: ".row .actions", pose: "acao", text: "Aqui você usa a ferramenta, vê o código ou acompanha o desenvolvimento no GitHub. O selo perto do nome diz se ela está disponível ou em construção." },
+    { sel: ".row .fav", pose: "amor", text: "Toque na estrela para favoritar. Suas favoritas sobem na lista e ficam salvas só neste navegador." },
+    { sel: "#theme", pose: "tema", text: "Alterne entre o tema escuro e o claro quando preferir." },
+    { sel: "#foot-priv", pose: "fim", text: "Aqui você apaga o que guardei neste navegador ou revê este tutorial. Nada sai do seu aparelho. Bom uso!" }
   ];
 
   /* ---------- Botão flutuante + balão ---------- */
@@ -28,17 +27,30 @@
       <p><strong>Oi, eu sou o Vi!</strong> Quer um tour rápido pelo site? Já conhece? É só dispensar.</p>
       <div class="bubble-actions"><button class="btn primary" data-act="start">Me mostre</button><button class="btn" data-act="later">Dispensar</button></div>
     </div>
-    <button class="help-fab" id="fab" aria-label="Ajuda: tour guiado do site">${MASCOT()}<span class="fab-label">Ajuda</span></button>`;
+    <button class="help-fab" id="fab" aria-label="Ajuda: tour guiado do site">${MASCOT("oi")}<span class="fab-label">Ajuda</span></button>`;
   document.body.appendChild(wrap);
   const bubble = $("#bubble", wrap), fab = $("#fab", wrap);
 
   const showBubble = () => { bubble.hidden = false; fab.classList.add("wave"); setTimeout(() => fab.classList.remove("wave"), 3600); };
   const hideBubble = () => { bubble.hidden = true; fab.classList.remove("wave"); };
-  const begin = () => { hideBubble(); markSeen(); startTour(); };
-  bubble.onclick = e => { const b = e.target.closest("[data-act]"); if (!b) return; if (b.dataset.act === "start") begin(); else { hideBubble(); markSeen(); } };
+  const begin = () => { stopCalling(); hideBubble(); markSeen(); startTour(); };
+  bubble.onclick = e => { const b = e.target.closest("[data-act]"); if (!b) return; if (b.dataset.act === "start") begin(); else { stopCalling(); hideBubble(); markSeen(); } };
   fab.onclick = begin;
   const link = document.getElementById("help-open"); if (link) link.onclick = begin;
   if (!seen()) setTimeout(() => { if (!document.body.classList.contains("touring")) showBubble(); }, 4000);
+
+  /* Chamando a atenção: o Vi pula e late para o botão de ajuda até o visitante reagir (máx. 5 vezes) */
+  const viEl = $(".vi", fab), setPose = p => { viEl.innerHTML = window.ViDog(p); };
+  let calls = 0, callT = 0, calling = false;
+  const stopCalling = () => { clearTimeout(callT); calling = false; fab.classList.remove("call"); setPose("oi"); };
+  function callAttention() {
+    if (seen() || document.body.classList.contains("touring") || reduce()) return;
+    calling = true; fab.classList.add("call"); setPose("au");
+    setTimeout(() => { fab.classList.remove("call"); setPose("oi"); }, 1900);
+    if (++calls < 5) callT = setTimeout(callAttention, 7000);
+  }
+  if (!seen() && !reduce()) callT = setTimeout(callAttention, 2500);
+  ["pointerenter", "focus"].forEach(ev => fab.addEventListener(ev, stopCalling, { once: true }));
 
   /* ---------- Tour ---------- */
   let steps = [], i = 0, ring, arrow, card, shield, raf = 0, inerted = [];
@@ -71,7 +83,7 @@
     i = Math.max(0, Math.min(steps.length - 1, n));
     const s = steps[i], last = i === steps.length - 1;
     card.innerHTML = `
-      <div class="tour-head"><span class="tour-av">${MASCOT(false)}</span><strong id="tour-title">Vi</strong><span class="tour-count" aria-live="polite">Passo ${i + 1} de ${steps.length}</span></div>
+      <div class="tour-head"><span class="tour-av">${MASCOT(s.pose)}</span><strong id="tour-title">Vi</strong><span class="tour-count" aria-live="polite">Passo ${i + 1} de ${steps.length}</span></div>
       <p class="tour-text">${s.text}</p>
       <div class="tour-dots" aria-hidden="true">${steps.map((_, k) => `<i class="${k === i ? "on" : ""}"></i>`).join("")}</div>
       <div class="tour-actions"><button class="link skip-t" data-t="skip" aria-label="Pular tutorial">Pular</button><span class="sp"></span>
