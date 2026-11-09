@@ -1,11 +1,17 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="theme-color" content="#0b0b0f">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VF Tools</title>
-<meta name="description" content="Coleção de ferramentas de Vitor Farias: utilidades, casual e profissional.">
+<title>VF Tools — ferramentas open source simples para problemas reais</title>
+<meta name="description" content="Utilitários gratuitos e open source de Vitor Farias. Rodam no navegador, sem cadastro e sem rastreamento.">
+<meta name="theme-color" content="#14110f">
+<link rel="canonical" href="https://vitorfariasvf.github.io/VF-Tools/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VF Tools">
+<meta property="og:description" content="Utilitários gratuitos e open source. Sem cadastro, sem anúncios, sem rastreamento.">
+<meta property="og:url" content="https://vitorfariasvf.github.io/VF-Tools/">
+<meta name="twitter:card" content="summary">
 <script>try{var s=JSON.parse(localStorage.getItem("vf-tools:v1")||"{}").theme;if(s)document.documentElement.dataset.theme=s}catch(e){}</script>
 <link rel="icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="tokens.css">
@@ -13,49 +19,42 @@
 </head>
 <body>
 <a class="skip" href="#tools">Ir para as ferramentas</a>
+<header class="top wrap">
+  <a class="logo" href="./" aria-label="VF Tools, início">VF<i>.</i>Tools</a>
+  <button id="theme" class="icon-btn" aria-label="Alternar tema claro/escuro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+</header>
 
-<section class="hero" aria-labelledby="h1">
-  <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
-  <nav class="top wrap">
-    <span class="logo"><b>VF</b> Tools</span>
-    <button id="theme" class="icon-btn" aria-label="Alternar tema">☾</button>
-  </nav>
-  <div class="hero-body wrap">
-    <p class="eyebrow reveal" style="--d:0">Open source · feito por Vitor Farias</p>
-    <h1 id="h1" class="reveal" style="--d:1">Ferramentas simples<br>para <span class="grad">problemas reais</span>.</h1>
-    <p class="lead reveal" style="--d:2">Uma coleção de apps e utilitários que eu uso e publico — para o dia a dia, para diversão e para o trabalho.</p>
-    <div class="stats reveal" style="--d:3" id="stats"></div>
-    <a class="cta reveal" style="--d:4" href="#tools" id="cta">Explorar ferramentas <span aria-hidden="true">↓</span></a>
-  </div>
+<section class="hero wrap" aria-labelledby="h1">
+  <p class="stat reveal" id="stat" style="--d:0"></p>
+  <h1 id="h1" class="reveal" style="--d:1">Ferramentas simples para <em>problemas reais</em>.</h1>
+  <p class="lead reveal" style="--d:2">Utilitários gratuitos e open source que rodam no navegador. Sem cadastro, sem anúncios, sem rastreamento.</p>
+  <a class="cta reveal" style="--d:3" href="#tools">Ver ferramentas</a>
 </section>
 
 <main id="tools" class="wrap">
   <section id="continue" class="continue" hidden aria-label="Continuar de onde parou">
     <h2 class="sec">Continue de onde parou</h2>
-    <div id="recent" class="rail"></div>
+    <div id="recent" class="recent"></div>
   </section>
-
-  <h2 class="sec">Todas as ferramentas</h2>
-  <div class="toolbar">
-    <div class="search"><input id="q" type="search" placeholder="Buscar por nome, tag…" aria-label="Buscar ferramentas"></div>
-    <div class="selects">
-      <select id="status" aria-label="Filtrar por status"><option value="">Todos os status</option></select>
-      <select id="sort" aria-label="Ordenar">
-        <option value="name">A–Z</option><option value="used">Mais usadas</option><option value="recent">Recentes</option>
-      </select>
-    </div>
+  <div class="bar">
+    <input id="q" type="search" placeholder="Buscar ferramenta…  ( / )" aria-label="Buscar ferramentas">
+    <div id="cats" class="chips" role="group" aria-label="Categorias"></div>
   </div>
-  <div id="cats" class="chips" role="group" aria-label="Categorias"></div>
-  <div id="tags" class="chips small" role="group" aria-label="Tags"></div>
+  <details id="adv" class="adv" hidden>
+    <summary>Mais filtros</summary>
+    <div class="adv-body"><div id="tags" class="chips small" role="group" aria-label="Tags"></div>
+    <label>Status <select id="status"><option value="">Todos</option></select></label></div>
+  </details>
   <p id="count" class="count" aria-live="polite"></p>
-  <div id="grid" class="grid"></div>
-  <p id="empty" class="empty" hidden>Nada encontrado. <button id="clear" class="link">Limpar filtros</button></p>
+  <div id="list" class="list"></div>
+  <p id="empty" class="empty" role="status" hidden>Nada encontrado. <button id="clear" class="link">Limpar filtros</button></p>
 </main>
 
-<footer class="wrap foot">
-  <span>© <span id="y"></span> Vitor Farias · <a href="https://github.com/VitorFariasVF">GitHub</a></span>
-  <button id="reset" class="link">Apagar dados locais</button>
+<footer class="foot wrap">
+  <span>© <span id="y"></span> Vitor Farias · <a href="https://github.com/VitorFariasVF">GitHub</a> · <a href="https://github.com/VitorFariasVF/VF-Tools/issues">Sugerir ferramenta</a></span>
+  <span>Favoritos, histórico e tema ficam só neste navegador. <button id="reset" class="link">Limpar meus dados</button></span>
 </footer>
+<p id="toast" class="toast" role="status" aria-live="polite"></p>
 <script src="data/tools.js"></script>
 <script src="app.js"></script>
 </body>

@@ -1,21 +1,23 @@
-/* VF Tools — design tokens. Importe este arquivo em QUALQUER ferramenta nova:
+/* VF Tools — design tokens (identidade Editorial). Importe em QUALQUER ferramenta nova:
    <link rel="stylesheet" href="https://vitorfariasvf.github.io/VF-Tools/tokens.css">
-   Veja DESIGN.md para as regras de uso. */
+   Regras de uso em DESIGN.md. Escuro é o padrão; claro com data-theme="light". */
 :root{
   color-scheme:dark;
-  --font:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  --bg:#0b0b0f;--surface:#14141a;--text:#f4f4f5;--muted:#a1a1aa;--line:#26262e;
-  --accent:#8b8ff5;--accent-ink:#0b0b0f;--accent-soft:#1e1f3a;--shadow:none;
-  --ok:#16a34a;--warn:#d97706;--danger:#dc2626;
-  --c-utilidades:#0ea5e9;--c-casual:#ec4899;--c-profissional:#6366f1;
-  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-pill:999px;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --bg:#14110f;--surface:#1b1713;--text:#f4ede3;--muted:#b8ad9e;--line:#2f2924;
+  --accent:#f0b254;--accent-ink:#1a1206;
+  --ok:#86efac;--warn:#fdba74;--danger:#fca5a5;
+  --c-utilidades:#7dd3c0;--c-casual:#f4a3a3;--c-profissional:#a9b8ff;
+  --r-sm:8px;--r-md:12px;--r-pill:999px;
   --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:80px;
   --ease:cubic-bezier(.2,.7,.2,1);--dur:.2s;
 }
 :root[data-theme=light]{
   color-scheme:light;
-  --bg:#fafafa;--surface:#fff;--text:#18181b;--muted:#5f5f6b;--line:#e4e4e7;
-  --accent:#5b5fe0;--accent-ink:#fff;--accent-soft:#eef0ff;
-  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --bg:#f7f1e7;--surface:#fffaf1;--text:#201a14;--muted:#5e5446;--line:#ddd2c0;
+  --accent:#8a5200;--accent-ink:#fff;
+  --ok:#14532d;--warn:#8f3a0c;--danger:#991b1b;
+  --c-utilidades:#0f6a60;--c-casual:#a61b1b;--c-profissional:#3342a0;
 }
 @media(prefers-reduced-motion:reduce){:root{--dur:0s}}

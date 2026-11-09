@@ -1,4 +1,4 @@
-# Padrão de design — VF Tools
+# Padrão de design — VF Tools (identidade Editorial)
 
 Toda ferramenta nova (card no site **e** o app em si) segue estas regras para manter um visual único.
 
@@ -18,6 +18,9 @@ Acrescente um objeto em `data/tools.js`. Campos:
 **Regra de visibilidade:** só repositórios **públicos** entram na vitrine.
 
 Nova categoria? Adicione em `window.CATEGORIES` (label, desc, ícone) e uma cor `--c-<nome>` em `tokens.css`.
+
+## 1b. Identidade
+Estilo **Editorial**: fundo quente escuro, títulos em serifa (`--font-display`) com ênfase em itálico âmbar (`<em>` com `--accent`), corpo em sans. Cada ferramenta é uma **linha numerada** (01, 02…) com meta → título → descrição → tags à esquerda e ações à direita. O âmbar é reservado ao botão principal e ao destaque do título; as cores de categoria aparecem só no ícone e no rótulo. Sem emojis: ícones SVG de traço (1.8px, `currentColor`).
 
 ## 2. Tokens (`tokens.css`)
 Nunca use cor, espaçamento ou raio "solto". Em qualquer ferramenta:
