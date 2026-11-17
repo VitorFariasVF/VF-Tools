@@ -32,7 +32,7 @@
 
 <p>
   <b>03</b> &nbsp;<b><a href="https://github.com/VitorFariasVF/rpg-sheet-builder">RPG Sheet Builder</a></b><br>
-  Monte fichas de RPG com escolhas guiadas: D&amp;D 5e, Tormenta20, Tormenta RPG e Call of Cthulhu.<br>
+  Monte fichas de RPG com escolhas guiadas: D&amp;D 5e, Tormenta20, Tormenta RPG, Call of Cthulhu e 3DeT Victory.<br>
   <sub>CASUAL &nbsp;·&nbsp; BETA &nbsp;·&nbsp; # RPG &nbsp;# D&amp;D &nbsp;# Web</sub>
 </p>
 

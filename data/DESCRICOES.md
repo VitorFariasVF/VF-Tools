@@ -8,7 +8,7 @@ Para aplicar todas de uma vez (precisa do GitHub CLI logado): `APPLY=1 bash scri
 |---|---|
 | `VF-Tools` | Vitrine das minhas ferramentas open source, com padrão visual e modelo para novas ferramentas. |
 | `cronometro-github-pages` | Cronômetro simples e rápido, publicado com GitHub Pages. |
-| `rpg-sheet-builder` | Montador de fichas de RPG (D&D 5e, Tormenta20, Tormenta RPG e Call of Cthulhu), com PDF e exportação para Foundry e Roll20. |
+| `rpg-sheet-builder` | Montador de fichas de RPG (D&D 5e, Tormenta20, Tormenta RPG, Call of Cthulhu e 3DeT Victory), com PDF e backup. |
 | `Ferramenta-de-backup-e-editor-de-save-r.e.p.o` | Faz backup e edita os saves do jogo R.E.P.O. |
 | `SIte-FZ-piloto` | Piloto do site do projeto FZ. |
 | `typescript-curso-1` | Exercícios do primeiro curso de TypeScript. |
