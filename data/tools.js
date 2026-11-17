@@ -33,6 +33,6 @@ window.TOOLS = [
     pages: "https://vitorfariasvf.github.io/Ferramenta-de-backup-e-editor-de-save-r.e.p.o/" },
   { name: "RPG Sheet Builder", repo: "VitorFariasVF/rpg-sheet-builder",
     description: "Monte fichas de RPG com escolhas guiadas: D&D 5e, Tormenta20, Tormenta RPG e Call of Cthulhu. Exporta PDF, Foundry e Roll20.",
-    category: "casual", tags: ["RPG", "D&D", "Web"], status: "andamento",
+    category: "casual", tags: ["RPG", "D&D", "Web"], status: "beta",
     pages: "https://vitorfariasvf.github.io/rpg-sheet-builder/" }
 ];
