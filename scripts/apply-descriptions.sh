@@ -9,7 +9,7 @@ OWNER=VitorFariasVF
 run() { if [ "${APPLY:-0}" = 1 ]; then gh repo edit "$OWNER/$1" --description "$2" && echo "ok  $1"; else echo "gh repo edit $OWNER/$1 --description "$2""; fi; }
 run 'VF-Tools' 'Vitrine das minhas ferramentas open source, com padrão visual e modelo para novas ferramentas.'
 run 'cronometro-github-pages' 'Cronômetro simples e rápido, publicado com GitHub Pages.'
-run 'dnd5e-builder' 'Montador de fichas de personagem de D&D 5e, com escolhas guiadas.'
+run 'rpg-sheet-builder' 'Montador de fichas de RPG (D&D 5e, Tormenta20, Tormenta RPG e Call of Cthulhu), com PDF e exportação para Foundry e Roll20.'
 run 'Ferramenta-de-backup-e-editor-de-save-r.e.p.o' 'Faz backup e edita os saves do jogo R.E.P.O.'
 run 'SIte-FZ-piloto' 'Piloto do site do projeto FZ.'
 run 'typescript-curso-1' 'Exercícios do primeiro curso de TypeScript.'

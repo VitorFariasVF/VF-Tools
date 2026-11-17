@@ -31,7 +31,7 @@
 </p>
 
 <p>
-  <b>03</b> &nbsp;<b><a href="https://github.com/VitorFariasVF/dnd5e-builder">D&amp;D 5e Builder</a></b><br>
+  <b>03</b> &nbsp;<b><a href="https://github.com/VitorFariasVF/rpg-sheet-builder">RPG Sheet Builder</a></b><br>
   Monte fichas de personagem de D&amp;D 5e com escolhas guiadas.<br>
   <sub>CASUAL &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # D&amp;D &nbsp;# Web</sub>
 </p>
