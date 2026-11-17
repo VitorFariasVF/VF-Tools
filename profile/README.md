@@ -32,8 +32,8 @@
 
 <p>
   <b>03</b> &nbsp;<b><a href="https://github.com/VitorFariasVF/rpg-sheet-builder">RPG Sheet Builder</a></b><br>
-  Monte fichas de personagem de D&amp;D 5e com escolhas guiadas.<br>
-  <sub>CASUAL &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # D&amp;D &nbsp;# Web</sub>
+  Monte fichas de RPG com escolhas guiadas: D&amp;D 5e, Tormenta20, Tormenta RPG e Call of Cthulhu.<br>
+  <sub>CASUAL &nbsp;·&nbsp; EM CONSTRUÇÃO &nbsp;·&nbsp; # RPG &nbsp;# D&amp;D &nbsp;# Web</sub>
 </p>
 
 <img src="assets/divider.svg" width="100%" alt="">
