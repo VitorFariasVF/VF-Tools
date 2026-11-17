@@ -31,8 +31,8 @@ window.TOOLS = [
     description: "Faça backup e edite os saves do jogo R.E.P.O com segurança.",
     category: "utilidades", tags: ["Saves", "Desktop"], status: "andamento",
     pages: "https://vitorfariasvf.github.io/Ferramenta-de-backup-e-editor-de-save-r.e.p.o/" },
-  { name: "D&D 5e Builder", repo: "VitorFariasVF/dnd5e-builder",
-    description: "Monte fichas de personagem de D&D 5e com escolhas guiadas.",
-    category: "casual", tags: ["D&D", "Web"], status: "andamento",
-    pages: "https://vitorfariasvf.github.io/dnd5e-builder/" }
+  { name: "RPG Sheet Builder", repo: "VitorFariasVF/rpg-sheet-builder",
+    description: "Monte fichas de RPG com escolhas guiadas: D&D 5e, Tormenta20, Tormenta RPG e Call of Cthulhu. Exporta PDF, Foundry e Roll20.",
+    category: "casual", tags: ["RPG", "D&D", "Web"], status: "andamento",
+    pages: "https://vitorfariasvf.github.io/rpg-sheet-builder/" }
 ];

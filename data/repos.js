@@ -21,7 +21,7 @@ window.REPOS_SNAPSHOT = {
    "f": false
   },
   {
-   "n": "dnd5e-builder",
+   "n": "rpg-sheet-builder",
    "d": "",
    "l": "JavaScript",
    "s": 0,
